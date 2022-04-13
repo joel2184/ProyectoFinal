@@ -1,0 +1,176 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ProyectoFinal.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Shop Homepage - Start Bootstrap Template</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" />
+
+
+
+
+</head>
+<body>
+
+                <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#!">All Products</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
+                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <ul class="navbar-nav me-auto"></ul>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" id="idInicio">                   
+                            INICIA SESIÓN                      
+                        </button>
+						<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo" id="idRegistro">                   
+                            REGISTRARSE                    
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+    					<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">INICIAR SESSIÓN</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body">
+            <form class="item-fluid text-center" method="post">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="IdUsername" placeholder="Nombre de usuario">
+                    <label for="floatingInput">Usuario</label>
+                </div>
+                <br>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="IdPassword" placeholder="Contraseña">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+				<br>
+                <div class="checkbox mb-1">
+                    <label>
+                        <input type="checkbox" name="rememberme" id="rememberme"> Recordarme
+                    </label>
+                </div>
+                
+                <br>
+                <div>
+                    ¿Notienes cuenta? <a href="#signUpModal"> Crear una</a>
+                </div>      
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="Login_Submit()" data-bs-whatever="@mdo" id="SignIn">INICIAR SESIÓN </button>
+			
+				  </div>
+
+				</div>
+				</div>	
+           </div>
+		   
+		   
+		   
+		   <div class="modal fade" id="signUpModal" tabindex="-1" aria-labelledby="signUpModal" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="signUpTitle">Registrarse</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				  </div>
+				  <div class="modal-body">
+					<form>
+					  <div class="form-floating">
+						<input type="email" class="form-control" id="SignUp_Id_User" placeholder="name@example.com"></input>
+						<label for="SignUp_Id_User">Usuario</label>
+						<p id="SignUp_Id_UserText" style="color: red;"></p>
+					  </div>
+					  <div class="form-floating">
+						<input type="text" id="SignUp_Id_Name" class="form-control" placeholder="name"></input>
+						<label for="SignUp_Id_User">Nombre</label>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="text" id="SignUp_Id_Surname1" class="form-control" placeholder="surname1"></input>
+						<label for="SignUp_Id_Surname1">Apellido 1</label>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="text" id="SignUp_Id_Surname2" class="form-control" placeholder="surname2"></input>
+						<label for="SignUp_Id_Surname2">Apellido 2</label>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="password" id="SignUp_Id_Password01" class="form-control" placeholder="password"></input>
+						<label for="SignUp_Id_Password01">Contraseña</label>
+						<p id="SignUp_Id_p01Text" style="color: red;"></p>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="password" id="SignUp_Id_Password02" class="form-control" placeholder="password"></input>
+						<label for="SignUp_Id_Password02">Repetir contraseña</label>
+						<p id="SignUp_Id_p02Text" style="color: red;"></p>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="text" id="SignUp_Id_Phone" class="form-control" placeholder="000 000 000"></input>
+						<label for="SignUp_Id_Phone">Teléfono</label>
+					  </div> <BR>
+					  <div class="form-floating">
+						<input type="date" class="form-control" id="SignUp_Id_Date"></input>
+						<label for="SignUp_Id_Date">Fecha de nacimiento</label>
+					  </div> <BR>
+					</form>
+				  </div>
+				  <div class="modal-footer">
+					<button type="button" class="btn " data-bs-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-secondary" onclick="SignUp_Submit();">REGISTRARSE</button>
+				  </div>
+				</div>
+				</div>	
+           </div>
+		  
+
+        <!--
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="~/About">Acerca de</a></li>
+                        <li><a runat="server" href="~/Contact">Contacto</a></li>
+                    </ul>
+                </div>
+            -->
+            
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+            </footer>
+        </div>
+
+</body>
+</html>
