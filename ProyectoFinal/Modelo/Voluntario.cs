@@ -31,5 +31,27 @@ namespace ProyectoFinal.Modelo
             get { return nombre; } 
             set { nombre = value; }  
         }
+
+        public string Telefono
+        {
+            get { return telefono; }
+            set { telefono = value; }
+        }
+        public string Mail
+        {
+            get { return mail; }
+            set { mail = value; }
+        }
+        public string Preferencias
+        {
+            get { return preferencias; }
+            set { preferencias = value; }
+        }
+
+        public string Disponibilidad
+        {
+            get { return disponibilidad; }
+            set { disponibilidad = value; }
+        }
     }
 }
