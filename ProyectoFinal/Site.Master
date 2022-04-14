@@ -64,7 +64,6 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				  </div>
 				  <div class="modal-body">
-            <form class="item-fluid text-center" method="post">
                 <div class="form-floating">
                     <input type="email" class="form-control" id="IdUsername" placeholder="Nombre de usuario">
                     <label for="floatingInput">Usuario</label>
@@ -108,38 +107,38 @@
 				  <div class="modal-body">
 					<form>
 					  <div class="form-floating">
-						<input type="email" class="form-control" id="SignUp_Id_User" placeholder="name@example.com"></input>
+						<input type="email" class="form-control" id="SignUp_Id_User" placeholder="name@example.com">
 						<label for="SignUp_Id_User">Usuario</label>
 						<p id="SignUp_Id_UserText" style="color: red;"></p>
 					  </div>
 					  <div class="form-floating">
-						<input type="text" id="SignUp_Id_Name" class="form-control" placeholder="name"></input>
+						<input type="text" id="SignUp_Id_Name" class="form-control" placeholder="name">
 						<label for="SignUp_Id_User">Nombre</label>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="text" id="SignUp_Id_Surname1" class="form-control" placeholder="surname1"></input>
+						<input type="text" id="SignUp_Id_Surname1" class="form-control" placeholder="surname1">
 						<label for="SignUp_Id_Surname1">Apellido 1</label>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="text" id="SignUp_Id_Surname2" class="form-control" placeholder="surname2"></input>
+						<input type="text" id="SignUp_Id_Surname2" class="form-control" placeholder="surname2">
 						<label for="SignUp_Id_Surname2">Apellido 2</label>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="password" id="SignUp_Id_Password01" class="form-control" placeholder="password"></input>
+						<input type="password" id="SignUp_Id_Password01" class="form-control" placeholder="password">
 						<label for="SignUp_Id_Password01">Contraseña</label>
 						<p id="SignUp_Id_p01Text" style="color: red;"></p>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="password" id="SignUp_Id_Password02" class="form-control" placeholder="password"></input>
+						<input type="password" id="SignUp_Id_Password02" class="form-control" placeholder="password">
 						<label for="SignUp_Id_Password02">Repetir contraseña</label>
 						<p id="SignUp_Id_p02Text" style="color: red;"></p>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="text" id="SignUp_Id_Phone" class="form-control" placeholder="000 000 000"></input>
+						<input type="text" id="SignUp_Id_Phone" class="form-control" placeholder="000 000 000">
 						<label for="SignUp_Id_Phone">Teléfono</label>
 					  </div> <BR>
 					  <div class="form-floating">
-						<input type="date" class="form-control" id="SignUp_Id_Date"></input>
+						<input type="date" class="form-control" id="SignUp_Id_Date">
 						<label for="SignUp_Id_Date">Fecha de nacimiento</label>
 					  </div> <BR>
 					</form>

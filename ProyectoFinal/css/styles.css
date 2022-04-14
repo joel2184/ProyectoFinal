@@ -1,19 +1,31 @@
 ﻿.btn {
-    margin-left: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 10px 50px;
+    font-size: 16px;
+    background: #46a2fd;
     color: #fff;
-    background-color: cadetblue;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
-.content-wrapper {
+    .btn:hover {
+        opacity: 0.9;
+    }
+
+.posts {
     margin: 0 auto;
     max-width: 1200px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     padding: 0.5rem;
+    width: 100%;
+    
 }
 
-.news-card {
+.post {
     border: 0px solid aqua;
     margin: 0.5rem;
     position: relative;
@@ -31,12 +43,12 @@
 
 @media (min-width: 900px) {
 
-    .news-card {
+    .post {
         height: 20rem
     }
 }
 
-.news-card::before {
+.post::before {
     content: '';
     position: absolute;
     top: 0;
@@ -60,7 +72,7 @@
 .news-card__image {
     width: 100%;
     height: 100%;
-    display: block;
+
     object-fit: cover;
     transition: transform 3s ease;
     -webkit-backface-visibility: hidden;
@@ -96,20 +108,20 @@
 }
 
 @media (min-width: 900px) {
-    .news-card:hover .news-card__details-wrapper {
+    .post:hover .news-card__details-wrapper {
         max-height: 20rem;
         opacity: 1;
     }
 
-    .news-card:hover .news-card__text-wrapper {
+    .post:hover .news-card__text-wrapper {
         background-color: rgba(0, 0, 0, 0.6);
     }
 
-    .news-card:hover .news-card__title {
+    .post:hover .news-card__title {
         color: yellow;
     }
 
-    .news-card:hover .news-card__image {
+    .post:hover .news-card__image {
         transform: scale(1.2);
         z-index: -1;
     }
@@ -120,14 +132,11 @@
 }
 
 .news-card__read-more {
-    background: black;
-    color: #fff;
-    background-color: cadetblue;
-    display: block;
+
+
     padding: 0.4rem 0.6rem;
     border-radius: 0.3rem;
     margin-top: 1rem;
-    border: 1px solid #444;
     font-size: 0.8rem;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -137,8 +146,15 @@
     position: relative;
     z-index: 5;
     text-align: center;
-}
 
+    background: #46a2fd;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+    .news-card__read-more:hover {
+        opacity: 0.9;
+    }
 
 /* Slideshow container */
 .slideshow-container {
@@ -214,3 +230,71 @@
     .active, .dot:hover {
         background-color: #717171;
     }
+
+/*Contenedor de categorias*/
+
+input[type="radio"] {
+    display: none;
+}
+
+.container-category {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+    .container-category label {
+        padding: 6px 40px;
+        margin: 10px;
+        font-size: 20px;
+        background: #e2e2e2;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .container-category label:hover {
+            opacity: 0.8;
+        }
+
+/*sistema de filtrado*/
+
+[value="TODAS"]:checked ~ .posts .post[data-category] {
+    display: block;
+}
+
+[value="OCIO"]:checked ~ .posts .post [data-category~="OCIO"],
+[value="PASEO"]:checked ~ .posts .post:not([data-category~="PASEO"]),
+[value="ENTRETENIMIENTO"]:checked ~ .posts .post:not([data-category~="ENTRETENIMIENTO"]),
+[value="EDUCATIVA"]:checked ~ .posts .post:not([data-category~="EDUCATIVA"]) {
+    display: none;
+    background: #ff0000;
+}
+
+[value="TODAS"]:checked ~ .container-category [for="TODAS"],
+[value="OCIO"]:checked ~ .container-category [for="OCIO"],
+[value="PASEO"]:checked ~ .container-category [for="PASEO"],
+[value="ENTRETENIMIENTO"]:checked ~ .container-category [for="ENTRETENIMIENTO"],
+[value="EDUCATIVA"]:checked ~ .container-category [for="EDUCATIVA"] {
+    background: #46a2fd;
+    color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+    .content-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .content-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .content-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

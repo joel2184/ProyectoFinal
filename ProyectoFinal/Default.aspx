@@ -70,87 +70,107 @@
 
     </script>
 
-<div class="content-wrapper">
+     <div class="container-post">
 
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing First Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio, pariatur&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
+        <input type="radio" id="TODAS" name="categories" value="TODAS" checked>
+        <input type="radio" id="OCIO" name="categories" value="OCIO">
+        <input type="radio" id="PASEO" name="categories" value="PASEO">
+        <input type="radio" id="ENTRETENIMIENTO" name="categories" value="ENTRETENIMIENTO">
+        <input type="radio" id="EDUCATIVA" name="categories" value="EDUCATIVA">
+
+
+        <div class="container-category">
+            <label for="TODAS">TODAS ACTIVIDADES</label>
+            <label for="OCIO">OCIO</label>
+            <label for="PASEO">PASEO</label>
+            <label for="ENTRETENIMIENTO">ENTRETENIMIENTO</label>
+            <label for="EDUCATIVA">EDUCATIVA</label>
+        </div>
+         </div>
+
+    <div class="posts">
+        <div class="post" data-category="OCIO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Nombre Actividad</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <h6>Ubicación</h6>
+                    <h6>Tipo de actividad</h6>
+                    <h6>Número de plazas</h6>
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio, pariatur&hellip;</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" data-category="OCIO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Amazing Second Title that is Quite Long</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam obcaecati ex natus nulla rem sequi laborum quod fugit&hellip;</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" data-category="PASEO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Amazing Title</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae&hellip;</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" data-category="PASEO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/248486/pexels-photo-248486.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Amazing Forth Title that is Quite Long</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet!</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" data-category="OCIO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Amazing Fifth Title</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio&hellip;</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="post" data-category="ENTRETENIMIENTO">
+            <a href="#" class="news-card__card-link"></a>
+            <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
+            <div class="news-card__text-wrapper">
+                <h2 class="news-card__title">Amazing 6<sup>th</sup> Title</h2>
+                <div class="news-card__post-date">Jan 29, 2018</div>
+                <div class="news-card__details-wrapper">
+                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia.</p>
+                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
+                </div>
+            </div>
+        </div>
+
     </div>
-  </div>
-
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Second Title that is Quite Long</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam obcaecati ex natus nulla rem sequi laborum quod fugit&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis beatae&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/248486/pexels-photo-248486.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Forth Title that is Quite Long</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet!</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing Fifth Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia iure architecto deserunt distinctio&hellip;</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="news-card">
-    <a href="#" class="news-card__card-link"></a>
-    <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-    <div class="news-card__text-wrapper">
-      <h2 class="news-card__title">Amazing 6<sup>th</sup> Title</h2>
-      <div class="news-card__post-date">Jan 29, 2018</div>
-      <div class="news-card__details-wrapper">
-        <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia.</p>
-        <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-</div>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2022</p></div>
