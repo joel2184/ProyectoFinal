@@ -7,26 +7,33 @@ namespace ProyectoFinal.Modelo
 {
     public class Voluntario
     {
+        string dni;
         string nombre;
         string telefono;
-        string mail;
-        string preferencias;
-        string disponibilidad;
+        string email;
+        string horario;
+        string password;
 
         int id_Voluntario;
 
         public Voluntario() { }
 
-        public Voluntario(string nombre, string telefono, string mail, string preferencias, string disponibilidad, int id_Voluntario)
+        public Voluntario(string dn,  string nom, string tel, string mail, string horari,string pass int id_Voluntario)
         {
-            this.nombre = nombre;
-            this.telefono = telefono;
-            this.mail = mail;
-            this.preferencias = preferencias;
-            this.disponibilidad = disponibilidad;
+            this.dni = dn;
+            this.nombre = nom;
+            this.telefono = tel;
+            this.email = mail;
+            this.horario = horari;
+            this.password = pass;
             this.id_Voluntario = id_Voluntario;
         }
 
+        public string Dni
+        {
+            get { return dni; }
+            set { dni = value; }
+        }
         public string Nombre {
             get { return nombre; } 
             set { nombre = value; }  
@@ -37,21 +44,22 @@ namespace ProyectoFinal.Modelo
             get { return telefono; }
             set { telefono = value; }
         }
-        public string Mail
+        public string Email
         {
-            get { return mail; }
-            set { mail = value; }
-        }
-        public string Preferencias
-        {
-            get { return preferencias; }
-            set { preferencias = value; }
+            get { return email; }
+            set { email = value; }
         }
 
-        public string Disponibilidad
+        public string Horario
         {
-            get { return disponibilidad; }
-            set { disponibilidad = value; }
+            get { return horario; }
+            set { horario = value; }
+        }
+
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
         }
     }
 }

@@ -7,79 +7,54 @@ namespace ProyectoFinal.Modelo
 {
     public class Actividad
     {
-        string nombre_actividad;
-        string tipo_actividad;
-        string direccion;
+        string nombre;
+        string tipo;
+        string horario;
         string descripcion;
-        DateTime horario;
-        int plazas_disponibles;
-        Residencia residencia;
-        List<Voluntario> voluntarios;
+        int residencia;
+        int id_actividad;
+        
 
         public Actividad()
-        {
-            voluntarios = new List<Voluntario>();
+        {            
         }
 
-        public Actividad(string nombre_actividad, string tipo_actividad, string direccion, DateTime horario, 
-            int plazas_disponibles, string descripcion, Residencia residencia, List<Voluntario> voluntarios)
+        public Actividad(string nom, string tipo, string horario, string descripcion, int residencia, int id_act)
         {
-            this.nombre_actividad = nombre_actividad;
-            this.tipo_actividad = tipo_actividad;
-            this.direccion = direccion;
+            this.nombre = nom;
+            this.tipo = tipo;
             this.horario = horario;
-            this.plazas_disponibles = plazas_disponibles;
             this.descripcion = descripcion;
             this.residencia = residencia;
-            this.voluntarios = voluntarios;
+            this.id_actividad = id_act;
         }
 
-        public string Nombre_actividad
+        public string Nombre
         {
-            get { return nombre_actividad; }
-            set { nombre_actividad = value; }
+            get { return nombre; }
+            set { nombre = value; }
         }
-        public string Tipo_actividad
+        public string Tipo
         {
-            get { return tipo_actividad; }
-            set { tipo_actividad = value; }
+            get { return tipo; }
+            set { tipo = value; }
         }
         public string Descripcion
         {
             get { return descripcion; }
             set { descripcion = value; }
         }
-        public string Direccion
-        {
-            get { return direccion; }
-            set { direccion = value; }
-        }
 
-        public DateTime Horario
+        public string Horario
         {
             get { return horario; }
             set { horario = value; }
-        }
+        }       
 
-        public int Plazas_disponibles
-        {
-            get { return plazas_disponibles; }
-            set { plazas_disponibles = value; }
-        }
-
-        public Residencia Residencia
+        public int Residencia
         {
             get { return residencia; }
             set { residencia = value; }
-        }
-        public List<Voluntario> Voluntarios
-        {
-            get { return voluntarios; }
-            set { voluntarios = value; }
-        }
-
-        public void addVoluntario(Voluntario v) {
-            voluntarios.Add(v);
         }
     }
 }
