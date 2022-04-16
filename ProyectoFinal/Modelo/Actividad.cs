@@ -9,7 +9,7 @@ namespace ProyectoFinal.Modelo
     {
         string nombre;
         string tipo;
-        string horario;
+        int horario;
         string descripcion;
         int residencia;
         int id_actividad;
@@ -19,7 +19,7 @@ namespace ProyectoFinal.Modelo
         {            
         }
 
-        public Actividad(string nom, string tipo, string horario, string descripcion, int residencia, int id_act)
+        public Actividad(string nom, string tipo, int horario, string descripcion, int residencia, int id_act)
         {
             this.nombre = nom;
             this.tipo = tipo;
@@ -45,7 +45,7 @@ namespace ProyectoFinal.Modelo
             set { descripcion = value; }
         }
 
-        public string Horario
+        public int Horario
         {
             get { return horario; }
             set { horario = value; }

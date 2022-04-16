@@ -18,7 +18,7 @@ namespace ProyectoFinal.Modelo
 
         public Voluntario() { }
 
-        public Voluntario(string dn,  string nom, string tel, string mail, string horari,string pass int id_Voluntario)
+        public Voluntario(string dn,  string nom, string tel, string mail, string horari,string pass, int id_Voluntario)
         {
             this.dni = dn;
             this.nombre = nom;

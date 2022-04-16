@@ -87,84 +87,10 @@
          </div>
 
     <div class="posts">
-        <div class="post" data-category="OCIO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Taller de manualidades</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                    <p class="news-card__excerpt">En ellos podrán hacer proyectos tan divertidos como pintar con diferentes materiales, crear carteles, realizar collages o incluso utilizar cerámica.</p>
-                    <a href="#" class="news-card__read-more">Apuntarse <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
+  
+    <asp:Literal ID = "divCards" runat = "server" />
 
-        <div class="post" data-category="OCIO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/631954/pexels-photo-631954.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Taller de yoga</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                <div class="news-card__details-wrapper">
-                    <p class="news-card__excerpt">A través del yoga nuestros mayores podrán mantener habilidades como la fuerza, el equilibrio y la flexibilidad.</p>
-                    <a href="#" class="news-card__read-more">Apuntarse <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="post" data-category="PASEO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Juegos de mesa</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                <div class="news-card__details-wrapper">
-                    <p class="news-card__excerpt">Los juegos de mesa son la mejor forma de socializar con los residentes y de regresar a la infancia. Hay una gran variedad de juegos de mesa, y estos pueden ser tanto individuales, como por parejas o incluso grupos de más de 3 personas.</p>
-                    <a href="#" class="news-card__read-more">Apuntarse <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="post" data-category="PASEO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/248486/pexels-photo-248486.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Taller de jardineria</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                <div class="news-card__details-wrapper">
-                    <p class="news-card__excerpt">permite a nuestros mayores cultivar sus flores, plantas u hortalizas favoritas.</p>
-                    <a href="#" class="news-card__read-more">Apuntarse <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="post" data-category="OCIO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/206660/pexels-photo-206660.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Taller de baile</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                <div class="news-card__details-wrapper">
-                    <p class="news-card__excerpt">Durante estas sesiones se pueden enseñar bailes tan diferentes como son las danzas latinas: la salsa, el tango o el chachachá. O si prefieren bailes más clásicos, el vals es la respuesta.</p>
-                    <a href="#" class="news-card__read-more">Apuntarse <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="post" data-category="ENTRETENIMIENTO">
-            <a href="#" class="news-card__card-link"></a>
-            <img src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260" alt="" class="news-card__image">
-            <div class="news-card__text-wrapper">
-                <h2 class="news-card__title">Amazing 6<sup>th</sup> Title</h2>
-                <div class="news-card__post-date">Apr 14, 2022</div>
-                <div class="news-card__details-wrapper">
-                    <p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est pariatur nemo tempore repellat? Ullam sed officia.</p>
-                    <a href="#" class="news-card__read-more">Read more <i class="fas fa-long-arrow-alt-right"></i></a>
-                </div>
-            </div>
-        </div>
-
-    </div>      
+</div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
