@@ -39,10 +39,12 @@ namespace ProyectoFinal.DALs
                     int id = Convert.ToInt32(dr["id_actividad"].ToString());
                     string nombre = dr["nombre"].ToString();
                     string tipo = dr["tipo"].ToString();
-                    int horario = Convert.ToInt32(dr["horario"].ToString());
+                    TimeSpan horario = TimeSpan.Parse(dr["horario"].ToString());
+                    DateTime fecha = Convert.ToDateTime(dr["fecha"].ToString());
+                    
                     int rseidencia = Convert.ToInt32(dr["fk_residencia"].ToString());
                     string desccripcion = dr["descripcion"].ToString();
-                    temp = new Actividad(nombre,tipo,horario,desccripcion,rseidencia,id);
+                    temp = new Actividad(nombre,tipo,horario,fecha.Date,desccripcion,rseidencia,id);
                     list.Add(temp);
                 }
 

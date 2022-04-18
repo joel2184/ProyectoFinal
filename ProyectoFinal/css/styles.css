@@ -42,7 +42,7 @@
 @media (min-width: 900px) {
 
     .post {
-        height: 20rem
+        height: 20rem;
     }
 }
 
@@ -54,7 +54,6 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.7) 80%);
-    
     z-index: 0;
 }
 
@@ -81,14 +80,12 @@
 }
 
 .news-card__text-wrapper {
-    width: auto;
     position: absolute;
     bottom: 0rem;
     padding: 1rem;
     color: white;
     /*     background-color: rgba(0, 0, 0, 0.4); */
     transition: background-color 1.5s ease;
-   
 }
 
 .news-card__title {
@@ -106,14 +103,12 @@
     max-height: 0;
     opacity: 0;
     transition: max-height 1.5s ease, opacity 1s ease;
-    
 }
 
 @media (min-width: 900px) {
     .post:hover .news-card__details-wrapper {
-        height: 20rem;
+        max-height: 20rem;
         opacity: 1;
-        
     }
 
     .post:hover .news-card__text-wrapper {
@@ -270,41 +265,3 @@ input[type="radio"] {
 
 /*sistema de filtrado*/
 
-[value="TODAS"]:checked ~ .posts .post[data-category] {
-    display: block;
-}
-
-[value="OCIO"]:checked ~ .posts .post [data-category~="OCIO"],
-[value="PASEO"]:checked ~ .posts .post:not([data-category~="PASEO"]),
-[value="ENTRETENIMIENTO"]:checked ~ .posts .post:not([data-category~="ENTRETENIMIENTO"]),
-[value="EDUCATIVA"]:checked ~ .posts .post:not([data-category~="EDUCATIVA"]) {
-    display: none;
-    background: #ff0000;
-}
-
-[value="TODAS"]:checked ~ .container-category [for="TODAS"],
-[value="OCIO"]:checked ~ .container-category [for="OCIO"],
-[value="PASEO"]:checked ~ .container-category [for="PASEO"],
-[value="ENTRETENIMIENTO"]:checked ~ .container-category [for="ENTRETENIMIENTO"],
-[value="EDUCATIVA"]:checked ~ .container-category [for="EDUCATIVA"] {
-    background: #46a2fd;
-    color: #fff;
-}
-
-@media screen and (max-width: 1200px) {
-    .content-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .content-wrapper {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (max-width: 580px) {
-    .content-wrapper {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}

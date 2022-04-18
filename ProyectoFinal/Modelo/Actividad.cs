@@ -9,7 +9,8 @@ namespace ProyectoFinal.Modelo
     {
         string nombre;
         string tipo;
-        int horario;
+        TimeSpan horario;
+        DateTime fecha;
         string descripcion;
         int residencia;
         int id_actividad;
@@ -19,11 +20,12 @@ namespace ProyectoFinal.Modelo
         {            
         }
 
-        public Actividad(string nom, string tipo, int horario, string descripcion, int residencia, int id_act)
+        public Actividad(string nom, string tipo, TimeSpan horario,DateTime fecha, string descripcion, int residencia, int id_act)
         {
             this.nombre = nom;
             this.tipo = tipo;
             this.horario = horario;
+            this.fecha = fecha;
             this.descripcion = descripcion;
             this.residencia = residencia;
             this.id_actividad = id_act;
@@ -45,11 +47,17 @@ namespace ProyectoFinal.Modelo
             set { descripcion = value; }
         }
 
-        public int Horario
+        public TimeSpan Horario
         {
             get { return horario; }
             set { horario = value; }
-        }       
+        }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
 
         public int Residencia
         {
