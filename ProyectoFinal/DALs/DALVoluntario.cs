@@ -19,17 +19,18 @@ namespace ProyectoFinal.DALs
 
         public Voluntario FindUser(string mail, string password)
         {
+
             try
             {
                 cnx.OpenConection();
 
-                string sql = @"
-                SELECT * FROM Voluntario WHERE email = @mail AND contrasena = @pass";
+                string sql = "SELECT * FROM Voluntario WHERE email = @mail AND contrasena = @pass";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
                 SqlParameter email = new SqlParameter("@mail", System.Data.SqlDbType.NVarChar, 50);
                 email.Value = mail;
                 cmd.Parameters.Add(email);
+
                 SqlParameter pass = new SqlParameter("@pass", System.Data.SqlDbType.NVarChar, 50);
                 pass.Value = password;
                 cmd.Parameters.Add(pass);
@@ -37,7 +38,8 @@ namespace ProyectoFinal.DALs
 
                 while (dr.Read())
                 {
-                    temp = new Voluntario(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]));
+
+                    temp = new Voluntario(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), Convert.ToInt32(dr[6]));
 
                 }
 
@@ -60,7 +62,7 @@ namespace ProyectoFinal.DALs
             {
                 cnx.OpenConection();
 
-                String sql = "INSERT INTO Voluntario (dni,nombre,telefono,email,horario,password) VALUES (@dni, @nom , @tel, @mail, @hor, @pass)";
+                String sql = "INSERT INTO Voluntario (dni,nombre,telefono,email,horario,contrasena) VALUES (@dni, @nom , @tel, @mail, @hor, @pass)";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
 
@@ -72,7 +74,8 @@ namespace ProyectoFinal.DALs
                 nombre.Value = r.Nombre;
                 cmd.Parameters.Add(nombre);
 
-                SqlParameter telefono = new SqlParameter("@tel", r.Telefono);
+                SqlParameter telefono = new SqlParameter("@tel", System.Data.SqlDbType.NVarChar, 50);
+                telefono.Value = r.Telefono;
                 cmd.Parameters.Add(telefono);
 
                 SqlParameter email = new SqlParameter("@mail", System.Data.SqlDbType.NVarChar, 50);
@@ -81,7 +84,7 @@ namespace ProyectoFinal.DALs
 
                 SqlParameter horario = new SqlParameter("@hor", System.Data.SqlDbType.NVarChar, 50);
                 horario.Value = r.Horario;
-                cmd.Parameters.Add(horario);                
+                cmd.Parameters.Add(horario);
 
                 SqlParameter pass = new SqlParameter("@pass", System.Data.SqlDbType.NVarChar, 50);
                 pass.Value = r.Password;

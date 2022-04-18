@@ -6,18 +6,16 @@ namespace ProyectoFinal.DALs
     {
         
         public SqlConnection conexion;
-        public const string str = "Data Source=217.71.207.123,54321 ;Initial Catalog=Jose_residencia;" +
-            "Persist Security Info= True; User ID= sa;Password=123456789";
 
         public void OpenConection()
-            {
-                conexion = new SqlConnection(str);
-                conexion.Open();
+        {
+            conexion = new SqlConnection(Properties.Settings.Default.connStr);
+            conexion.Open();
 
-            }
+        }
 
 
-            public void CloseConnection()
+        public void CloseConnection()
             {
                 conexion.Close();
             }
