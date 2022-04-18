@@ -39,7 +39,7 @@ namespace ProyectoFinal
 
                 foreach (Actividad a in listActividades)
                 {
-                    estrcuctura = "<div class='post'>" +
+                    estrcuctura = "<div class='news-card'>" +
                                         "<a href='#' class='news-card__card-link'></a>" +
                                         "<img src='https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260' alt='' class='news-card__image'>" +
                                         "<div class='news-card__text-wrapper'>" +

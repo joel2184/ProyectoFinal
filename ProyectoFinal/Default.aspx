@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="ProyectoFinal._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <link rel="stylesheet" href="css/cards.css">
             <!-- Header-->
 <!-- Slideshow container -->
 <div class="slideshow-container">
@@ -86,9 +86,9 @@
         </div>
          </div>
 
-    <div class="posts">
+    <div class="content-wrapper">
   
-    <asp:Literal ID = "divCards" runat = "server" />
+    <asp:Literal ID ="divCards" runat ="server" />
 
     </div>
         <!-- Bootstrap core JS-->
