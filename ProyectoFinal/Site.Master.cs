@@ -16,13 +16,13 @@ namespace ProyectoFinal
         protected void Page_Load(object sender, EventArgs e)
         {
             btnLogOut.Visible = false;
-            if (Global.rSigned != null || Global.vSigned != null)
+            if (Session["Voluntario"] != null || Session["Residencia"] != null)
             {
                 idInicio.Visible = false;
                 idRegistro.Visible = false;
                 btnLogOut.Visible = true;
             }
-            if (Request.Cookies["email"] != null)
+            if (Request.Cookies["email"] != null && Request.Cookies["password"] != null)
             {
                 txtMail.Text = this.Request.Cookies["email"].Value;
                 txtPassword.Text = this.Request.Cookies["password"].Value;
@@ -42,10 +42,12 @@ namespace ProyectoFinal
 
             if (tempv != null || tempr != null)
             {
+                
                 if (tempv != null)
-                    Global.vSigned = tempv;
+                    Session["Voluntario"] = tempv;
                 else
-                    Global.rSigned = tempr;
+                    Session["Residencia"] = tempr;
+
                 if (rememberme.Checked == true)
                     addCookie(tempv, tempr);
 
@@ -60,14 +62,12 @@ namespace ProyectoFinal
             }
 
         }
-        protected void btnLogOut_Click()
+        public void btnLogOut_Click(object sender, EventArgs e)
         {
-            if (tempv != null || tempr != null)
+            if (Session["Residencia"] != null || Session["Voluntario"] != null)
             {
-                if (tempv != null)
-                    Global.vSigned = null;
-                else
-                    Global.rSigned = null;
+                Session["Residencia"] = null;
+                Session["Voluntario"] = null;
 
                 Response.Redirect("Default.aspx");
 
@@ -123,14 +123,17 @@ namespace ProyectoFinal
                 HttpCookie cookie1 = new HttpCookie("email", v.Email);
                 HttpCookie cookie2 = new HttpCookie("password", v.Password);
                 cookie1.Expires = new DateTime(2022, 4, 30);
+                cookie2.Expires = new DateTime(2022, 4, 30);
+
                 Response.Cookies.Add(cookie1);
                 Response.Cookies.Add(cookie2);
             }
             else if (r != null)
             {
                 HttpCookie cookie1 = new HttpCookie("email", r.Email);
-                HttpCookie cookie2 = new HttpCookie("password", v.Password);
+                HttpCookie cookie2 = new HttpCookie("password", r.Password);
                 cookie1.Expires = new DateTime(2022, 4, 30);
+                cookie2.Expires = new DateTime(2022, 4, 30);
                 Response.Cookies.Add(cookie1);
                 Response.Cookies.Add(cookie2);
             }
