@@ -11,7 +11,10 @@ namespace ProyectoFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Voluntario"] == null || Session["Residencia"] == null)
+            {
+                Response.Redirect("Default.aspx");
+            }
         }
     }
 }
