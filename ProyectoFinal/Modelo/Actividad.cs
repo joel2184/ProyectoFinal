@@ -64,5 +64,10 @@ namespace ProyectoFinal.Modelo
             get { return residencia; }
             set { residencia = value; }
         }
+        public int Id_actividad
+        {
+            get { return id_actividad; }
+            set { id_actividad = value; }
+        }
     }
 }
