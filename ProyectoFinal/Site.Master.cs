@@ -15,6 +15,19 @@ namespace ProyectoFinal
         Residencia tempr = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnLogOut.Visible = false;
+            if (Global.rSigned != null || Global.vSigned != null)
+            {
+                idInicio.Visible = false;
+                idRegistro.Visible = false;
+                btnLogOut.Visible = true;
+            }
+            if (Request.Cookies["email"] != null)
+            {
+                txtMail.Text = this.Request.Cookies["email"].Value;
+                txtPassword.Text = this.Request.Cookies["password"].Value;
+            }
+
             divResi.Visible = false;
             btnVolu.Enabled = false;
         }
@@ -22,7 +35,7 @@ namespace ProyectoFinal
         {
             DALVoluntario dalV = new DALVoluntario();
             DALResidencia dalR = new DALResidencia();
-            
+
 
             tempv = dalV.FindUser(txtMail.Text, txtPassword.Text);
             tempr = dalR.FindUser(txtMail.Text, txtPassword.Text);
@@ -33,9 +46,10 @@ namespace ProyectoFinal
                     Global.vSigned = tempv;
                 else
                     Global.rSigned = tempr;
+                if (rememberme.Checked == true)
+                    addCookie(tempv, tempr);
 
                 Response.Redirect("About.aspx");
-
 
             }
             else
@@ -44,7 +58,21 @@ namespace ProyectoFinal
                 Response.Redirect("#!");
 
             }
-            
+
+        }
+        protected void btnLogOut_Click()
+        {
+            if (tempv != null || tempr != null)
+            {
+                if (tempv != null)
+                    Global.vSigned = null;
+                else
+                    Global.rSigned = null;
+
+                Response.Redirect("Default.aspx");
+
+
+            }
         }
 
         protected void btnVolu_Click(object sender, EventArgs e)
@@ -86,6 +114,27 @@ namespace ProyectoFinal
                     Response.Redirect("About.aspx");
                 }
             }
+        }
+
+        protected void addCookie(Voluntario v, Residencia r)
+        {
+            if (v != null)
+            {
+                HttpCookie cookie1 = new HttpCookie("email", v.Email);
+                HttpCookie cookie2 = new HttpCookie("password", v.Password);
+                cookie1.Expires = new DateTime(2022, 4, 30);
+                Response.Cookies.Add(cookie1);
+                Response.Cookies.Add(cookie2);
+            }
+            else if (r != null)
+            {
+                HttpCookie cookie1 = new HttpCookie("email", r.Email);
+                HttpCookie cookie2 = new HttpCookie("password", v.Password);
+                cookie1.Expires = new DateTime(2022, 4, 30);
+                Response.Cookies.Add(cookie1);
+                Response.Cookies.Add(cookie2);
+            }
+
         }
     }
 }
