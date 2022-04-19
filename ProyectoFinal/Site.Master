@@ -29,32 +29,26 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
+                <a class="navbar-brand" href="Default.aspx">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="Default.aspx">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="About.aspx">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">All Products</a></li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
+                         <li class="nav-item"><a class="nav-link" href="#!">Mapa</a></li>
+                        
                     </ul>
+
+                    <ul class="navbar-nav me-auto"></ul>
+                    <button type="button" runat="server" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" id="idInicio">
+                        INICIA SESIÓN                      
+                    </button>
+                    <button type="button" runat="server" class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo" id="idRegistro">
+                        REGISTRARSE                    
+                    </button>
                     
-                        <ul class="navbar-nav me-auto"></ul>
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" id="idInicio">
-                            INICIA SESIÓN                      
-                        </button>
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo" id="idRegistro">
-                            REGISTRARSE                    
-                        </button>
+                   <asp:Button ID="btnLogOut" runat="server" CssClass="btn btn-secondary" Text="CERRAR SESIÓN" OnClick="btnLogOut_Click" />
+
                 </div>
             </div>
         </nav>
@@ -74,14 +68,14 @@
                         </div>
                         <br>
                         <div class="form-floating">
-                            <asp:Label ID="Label2" TextMode="Password" runat="server" Text="Contraseña"></asp:Label>
+                            <asp:Label ID="Label2"  runat="server" Text="Contraseña"></asp:Label>
                             <br />
-                            <asp:TextBox ID="txtPassword" class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
                         </div>
                         <br>
                         <div class="checkbox mb-1">
                             <label>
-                                <input type="checkbox" name="rememberme" id="rememberme">
+                                <input type="checkbox" runat="server" name="rememberme" id="rememberme">
                                 Recordarme
                             </label>
                         </div>
@@ -189,7 +183,7 @@
         </div>
 
 
-            <!--
+        <!--
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/">Inicio</a></li>
@@ -199,15 +193,17 @@
                 </div>
             -->
 
-            <div class="container body-content">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-                <hr />
-                <footer>
-                    <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
-                </footer>
-            </div>
-    
-        </form>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Mi aplicación ASP.NET</p>
+            </footer>
+        </div>
+
+
+    </form>
+   
 </body>
 </html>

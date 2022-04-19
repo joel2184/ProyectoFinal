@@ -133,8 +133,10 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\Educativa.jpg" />
     <Content Include="Images\gabriele.jpg" />
+    <Content Include="Images\github.jpg" />
     <Content Include="Images\joel.jpg" />
     <Content Include="Images\jose.jpg" />
+    <Content Include="Images\linkedin-logo.jpg" />
     <Content Include="Images\manuel.jpg" />
     <Content Include="Images\Ocio.jpg" />
     <Content Include="Images\Paseo.jpg" />
