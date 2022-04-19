@@ -4,12 +4,9 @@
     <h1>Sobre nosotros</h1>
     <h4>Gabriele Nevini</h4>
         <img width=200 src="Images\gabriele.jpg" />
-        <a href="https://www.linkedin.com/in/gabriele-nevini/">LinkedIn</a>
-        <a href="https://github.com/Gabrinev">GitHub</a>
-        <span class="fa-stack fa-2x">
-            <i class="fa-solid fa-circle fa-stack-2x"></i>
-            <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
-        </span>
+        <a href="https://www.linkedin.com/in/gabriele-nevini/"><img width=75 src="C:\Users\jose2\Source\Repos\ProyectoFinal\ProyectoFinal\Images\linkedin-logo.jpg" /></a>
+        <a href="https://github.com/Gabrinev"><img width=75 src="Images/github.jpg"/></a>
+            
     <h4>Joel Hurtado</h4>
         <img width=200 src="Images\joel.jpg" />
         <a href="https://www.linkedin.com/in/joelhurtadocomino/">LinkedIn</a>
