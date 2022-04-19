@@ -13,8 +13,10 @@ namespace ProyectoFinal
         {
             if (Session["Voluntario"] == null && Session["Residencia"] == null)
             {
+
                 Response.Redirect("Default.aspx");
             }
         }
+
     }
 }

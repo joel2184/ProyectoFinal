@@ -65,6 +65,7 @@ namespace ProyectoFinal
                 lblTODAS.Attributes.CssStyle.Clear();
                 lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
                 lblEDUCATIVA.Attributes.CssStyle.Clear();
+                
             }
             else if (PASEO.Checked)
             {
@@ -169,5 +170,10 @@ namespace ProyectoFinal
             divCards.Text = sb.ToString();
 
         }
+        protected void Alert(string message)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
+        }
+
     }
 }
