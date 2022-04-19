@@ -101,7 +101,7 @@
     }
 
     .news-card:hover .news-card__title {
-        color: yellow;
+        color: #56aeff;
     }
 
     .news-card:hover .news-card__image {

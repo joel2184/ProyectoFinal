@@ -13,9 +13,14 @@ namespace ProyectoFinal
         {
             if (Session["Voluntario"] == null && Session["Residencia"] == null)
             {
-
+                //Alert("dcede");
                 Response.Redirect("Default.aspx");
+                
             }
+        }
+        protected void Alert(string message)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
         }
 
     }

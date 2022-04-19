@@ -9,18 +9,18 @@
   <!-- Full-width images with number and caption text -->
   <div class="mySlides">
     <div class="numbertext">1 / 3</div>
-    <img src="https://t2.salir.ltmcdn.com/es/articles/1/3/7/las_mejores_residencias_de_ancianos_en_madrid_1731_orig.jpg" style="width:100%; height: 250px">
+    <img src="Images/slide1.png" style="width:100%; height: 100%">
     
   </div>
 
   <div class="mySlides">
     <div class="numbertext">2 / 3</div>
-    <img src="https://www.infoelder.com/oc-content/uploads/0/2/0/2473_thumbnail.jpg" style="width:100%; height: 250px">
+    <img src="Images/slide2.jpg" style="width:100%; height: 100%">
   </div>
 
   <div class="mySlides">
     <div class="numbertext">3 / 3</div>
-    <img src="https://emera-group.es/wp-content/uploads/2020/11/cabecera-Residencia-para-mayores-Sant-Genis-1536x551.jpg" style="width:100%; height: 250px">
+    <img src="Images/slide3.jpg" style="width:100%; height: 100%">
   </div>
 
   <!-- Next and previous buttons -->
