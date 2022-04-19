@@ -70,21 +70,22 @@
 
      <div class="container-post">
 
-        <input type="radio" id="TODAS" name="categories" value="TODAS" checked>
-        <input type="radio" id="OCIO" name="categories" value="OCIO">
-        <input type="radio" id="PASEO" name="categories" value="PASEO">
-        <input type="radio" id="ENTRETENIMIENTO" name="categories" value="ENTRETENIMIENTO">
-        <input type="radio" id="EDUCATIVA" name="categories" value="EDUCATIVA">
+        <asp:RadioButton value="TODAS" ID="TODAS" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonTodas_CheckedChanged" AutoPostBack="True" />
+        <asp:RadioButton value="OCIO" ID="OCIO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonOcio_CheckedChanged" AutoPostBack="True" />
+        <asp:RadioButton value="PASEO" ID="PASEO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonPaseo_CheckedChanged" AutoPostBack="True" />
+        <asp:RadioButton value="ENTRETENIMIENTO" ID="ENTRETENIMIENTO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonEntretenimiento_CheckedChanged" AutoPostBack="True" />
+        <asp:RadioButton value="EDUCATIVA" ID="EDUCATIVA" class="radio"  runat="server" GroupName="categories" OnCheckedChanged="RadioButtonEducativa_CheckedChanged" AutoPostBack="True" />
 
 
         <div class="container-category">
-            <label for="TODAS">TODAS ACTIVIDADES</label>
-            <label for="OCIO">OCIO</label>
-            <label for="PASEO">PASEO</label>
-            <label for="ENTRETENIMIENTO">ENTRETENIMIENTO</label>
-            <label for="EDUCATIVA">EDUCATIVA</label>
+            <asp:Label runat="server" AssociatedControlID="TODAS">TODAS ACTIVIDADES</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="OCIO">OCIO</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="PASEO">PASEO</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="ENTRETENIMIENTO">ENTRETENIMIENTO</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="EDUCATIVA">EDUCATIVA</asp:Label>
+
         </div>
-         </div>
+     </div>
 
     <div class="content-wrapper">
   

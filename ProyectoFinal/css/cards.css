@@ -70,6 +70,7 @@
     color: white;
     /*     background-color: rgba(0, 0, 0, 0.4); */
     transition: background-color 1.5s ease;
+    width: 100%;
 }
 
 .news-card__title {
@@ -142,5 +143,5 @@
 
     .news-card__read-more:hover i {
         left: 0.5rem;
-        color: yellow;
+        
     }

@@ -91,7 +91,7 @@
 
 /*Contenedor de categorias*/
 
-input[type="radio"] {
+.radio {
     display: none;
 }
 
@@ -117,11 +117,11 @@ input[type="radio"] {
         }
 
 
-[value="TODAS"]:checked ~ .container-category [for="TODAS"],
-[value="OCIO"]:checked ~ .container-category [for="OCIO"],
-[value="PASEO"]:checked ~ .container-category [for="PASEO"],
-[value="ENTRETENIMIENTO"]:checked ~ .container-category [for="ENTRETENIMIENTO"],
-[value="EDUCATIVA"]:checked ~ .container-category [for="EDUCATIVA"] {
+[value="TODAS"]:checked ~ .container-category [AssociatedControlID="TODAS"],
+[value="OCIO"]:checked ~ .container-category [AssociatedControlID="OCIO"],
+[value="PASEO"]:checked ~ .container-category [AssociatedControlID="PASEO"],
+[value="ENTRETENIMIENTO"]:checked ~ .container-category [AssociatedControlID="ENTRETENIMIENTO"],
+[value="EDUCATIVA"]:checked ~ .container-category [AssociatedControlID="EDUCATIVA"] {
     background: #46a2fd;
     color: #fff;
 }

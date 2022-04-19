@@ -61,6 +61,55 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+
+        public List<Actividad> SelectTipo(string tipoActividad)
+        {
+            //list.Clear();
+            try
+            {
+                cnx.OpenConection();
+
+                SqlParameter pTipo = new SqlParameter("@pTipoActividad", System.Data.SqlDbType.VarChar, 50);
+                pTipo.Value = tipoActividad;
+                string sql = @"
+                SELECT * FROM Actividades
+                WHERE tipo = @pTipoActividad";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+                cmd.Parameters.Add(pTipo);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                List<Actividad> list = new List<Actividad>();
+
+
+                while (dr.Read())
+                {
+                    int id = Convert.ToInt32(dr["id_actividad"].ToString());
+                    string nombre = dr["nombre"].ToString();
+                    string tipo = dr["tipo"].ToString();
+                    TimeSpan horario = TimeSpan.Parse(dr["horario"].ToString());
+                    DateTime fecha = Convert.ToDateTime(dr["fecha"].ToString());
+
+                    int rseidencia = Convert.ToInt32(dr["fk_residencia"].ToString());
+                    string desccripcion = dr["descripcion"].ToString();
+                    temp = new Actividad(nombre, tipo, horario, fecha.Date, desccripcion, rseidencia, id);
+                    list.Add(temp);
+                }
+
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return list;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar actividades " + ee);
+                return null;
+            }
+        }
         public Actividad InsertActividad(Actividad r)
         {
             try
