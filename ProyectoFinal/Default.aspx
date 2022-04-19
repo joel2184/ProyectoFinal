@@ -78,11 +78,11 @@
 
 
         <div class="container-category">
-            <asp:Label runat="server" AssociatedControlID="TODAS">TODAS ACTIVIDADES</asp:Label>
-            <asp:Label runat="server" AssociatedControlID="OCIO">OCIO</asp:Label>
-            <asp:Label runat="server" AssociatedControlID="PASEO">PASEO</asp:Label>
-            <asp:Label runat="server" AssociatedControlID="ENTRETENIMIENTO">ENTRETENIMIENTO</asp:Label>
-            <asp:Label runat="server" AssociatedControlID="EDUCATIVA">EDUCATIVA</asp:Label>
+            <asp:Label ID="lblTODAS" runat="server" AssociatedControlID="TODAS">TODAS ACTIVIDADES</asp:Label>
+            <asp:Label ID="lblOCIO" runat="server" AssociatedControlID="OCIO">OCIO</asp:Label>
+            <asp:Label ID="lblPASEO" runat="server" AssociatedControlID="PASEO">PASEO</asp:Label>
+            <asp:Label ID="lblENTRETENIMIENTO" runat="server" AssociatedControlID="ENTRETENIMIENTO">ENTRETENIMIENTO</asp:Label>
+            <asp:Label ID="lblEDUCATIVA" runat="server" AssociatedControlID="EDUCATIVA">EDUCATIVA</asp:Label>
 
         </div>
      </div>

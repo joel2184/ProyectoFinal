@@ -54,6 +54,40 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+
+        public Residencia FindById(int id)
+        {
+            try
+            {
+                cnx.OpenConection();
+
+                string sql = @"
+                SELECT * FROM Residencia WHERE id_residencia = @pId";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+                SqlParameter ID = new SqlParameter("@pId", System.Data.SqlDbType.Int);
+                ID.Value = id;
+                cmd.Parameters.Add(ID);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[3]));
+
+                }
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return temp;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar la Residencia " + ee);
+                return null;
+            }
+        }
         public Residencia InsertUser(Residencia r)
         {
             try

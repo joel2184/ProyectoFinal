@@ -131,10 +131,13 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\Educativa.jpg" />
     <Content Include="Images\gabriele.jpg" />
     <Content Include="Images\joel.jpg" />
     <Content Include="Images\jose.jpg" />
     <Content Include="Images\manuel.jpg" />
+    <Content Include="Images\Ocio.jpg" />
+    <Content Include="Images\Paseo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

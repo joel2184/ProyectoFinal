@@ -60,6 +60,51 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.RadioButton EDUCATIVA;
 
         /// <summary>
+        /// Control lblTODAS.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTODAS;
+
+        /// <summary>
+        /// Control lblOCIO.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOCIO;
+
+        /// <summary>
+        /// Control lblPASEO.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPASEO;
+
+        /// <summary>
+        /// Control lblENTRETENIMIENTO.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblENTRETENIMIENTO;
+
+        /// <summary>
+        /// Control lblEDUCATIVA.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEDUCATIVA;
+
+        /// <summary>
         /// Control divCards.
         /// </summary>
         /// <remarks>

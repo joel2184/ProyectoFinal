@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.Modelo;
+﻿using ProyectoFinal.DALs;
+using ProyectoFinal.Modelo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,23 +47,58 @@ namespace ProyectoFinal
             if (TODAS.Checked)
             {
                 buscarActividades();
+                lblTODAS.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblTODAS.Attributes.CssStyle.Add("color", "#fff");
+
+                lblPASEO.Attributes.CssStyle.Clear();
+                lblOCIO.Attributes.CssStyle.Clear();
+                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblEDUCATIVA.Attributes.CssStyle.Clear();
             }
             else if (OCIO.Checked)
             {
                 buscarActividades("Ocio");
+                lblOCIO.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblOCIO.Attributes.CssStyle.Add("color", "#fff");
+
+                lblPASEO.Attributes.CssStyle.Clear();
+                lblTODAS.Attributes.CssStyle.Clear();
+                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblEDUCATIVA.Attributes.CssStyle.Clear();
             }
             else if (PASEO.Checked)
             {
                 buscarActividades("Paseo");
+
+                lblPASEO.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblPASEO.Attributes.CssStyle.Add("color", "#fff");
+
+                lblTODAS.Attributes.CssStyle.Clear();
+                lblOCIO.Attributes.CssStyle.Clear();
+                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblEDUCATIVA.Attributes.CssStyle.Clear();
             }
             else if (ENTRETENIMIENTO.Checked)
             {
                 buscarActividades("Entretenimiento");
+                lblENTRETENIMIENTO.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblENTRETENIMIENTO.Attributes.CssStyle.Add("color", "#fff");
 
+                lblPASEO.Attributes.CssStyle.Clear();
+                lblOCIO.Attributes.CssStyle.Clear();
+                lblTODAS.Attributes.CssStyle.Clear();
+                lblEDUCATIVA.Attributes.CssStyle.Clear();
             }
             else if (EDUCATIVA.Checked)
             {
                 buscarActividades("Educativa");
+                lblEDUCATIVA.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblEDUCATIVA.Attributes.CssStyle.Add("color", "#fff");
+
+                lblPASEO.Attributes.CssStyle.Clear();
+                lblOCIO.Attributes.CssStyle.Clear();
+                lblTODAS.Attributes.CssStyle.Clear();
+                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
             }
         }
 
@@ -77,12 +113,17 @@ namespace ProyectoFinal
 
             foreach (Actividad a in listActividades)
             {
+                Residencia r = new Residencia();
+                DALResidencia dalR = new DALs.DALResidencia();
+                r = dalR.FindById(a.Residencia);
+                string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='news-card'>" +
-                                    "<a href='#' class='news-card__card-link'></a>" +
-                                    "<img src='https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260' alt='' class='news-card__image'>" +
+                                    "<a href='Contact.aspx' class='news-card__card-link'></a>" +
+                                    "<img src='"+ img + "' alt='' class='news-card__image'>" +
                                     "<div class='news-card__text-wrapper'>" +
                                       "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
                                       "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                      "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
                                       "<div class='news-card__details-wrapper'>" +
                                       "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
                                         "<a href = '#' class='btn'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
@@ -105,12 +146,17 @@ namespace ProyectoFinal
 
             foreach (Actividad a in listActividades)
             {
+                Residencia r = new Residencia();
+                DALResidencia dalR = new DALs.DALResidencia();
+                r = dalR.FindById(a.Residencia);
+                string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='news-card'>" +
-                                    "<a href='#' class='news-card__card-link'></a>" +
-                                    "<img src='https://images.pexels.com/photos/127513/pexels-photo-127513.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260' alt='' class='news-card__image'>" +
+                                    "<a href='Contact.aspx' class='news-card__card-link'></a>" +
+                                    "<img src='" + img + "' alt='' class='news-card__image'>" +
                                     "<div class='news-card__text-wrapper'>" +
                                       "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
                                       "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                      "<div class='news-card__post-date'>" + r.Direccion +"</div>" +
                                       "<div class='news-card__details-wrapper'>" +
                                       "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
                                         "<a href = '#' class='btn'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
