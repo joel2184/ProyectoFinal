@@ -116,3 +116,13 @@ input[type="radio"] {
             opacity: 0.8;
         }
 
+
+[value="TODAS"]:checked ~ .container-category [for="TODAS"],
+[value="OCIO"]:checked ~ .container-category [for="OCIO"],
+[value="PASEO"]:checked ~ .container-category [for="PASEO"],
+[value="ENTRETENIMIENTO"]:checked ~ .container-category [for="ENTRETENIMIENTO"],
+[value="EDUCATIVA"]:checked ~ .container-category [for="EDUCATIVA"] {
+    background: #46a2fd;
+    color: #fff;
+}
+
