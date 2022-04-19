@@ -11,15 +11,15 @@ namespace ProyectoFinal.DALs
     {
         Actividad temp;
         DBConnect cnx;
-        List<Actividad> list;
+        //List<Actividad> list;
 
         public DALActividad()
         {
             cnx = new DBConnect();
         }
-        public List<Actividad> SelectAll (string mail, string password)
+        public List<Actividad> SelectAll ()
         {
-            list.Clear();
+            //list.Clear();
             try
             {
                 cnx.OpenConection();
@@ -31,13 +31,24 @@ namespace ProyectoFinal.DALs
                 
                 SqlDataReader dr = cmd.ExecuteReader();
 
+                List<Actividad> list = new List<Actividad>();
+
+
                 while (dr.Read())
                 {
-                    temp = new Actividad(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[2]), Convert.ToInt32(dr[3]), Convert.ToInt32(dr[4]));
+                    int id = Convert.ToInt32(dr["id_actividad"].ToString());
+                    string nombre = dr["nombre"].ToString();
+                    string tipo = dr["tipo"].ToString();
+                    TimeSpan horario = TimeSpan.Parse(dr["horario"].ToString());
+                    DateTime fecha = Convert.ToDateTime(dr["fecha"].ToString());
+                    
+                    int rseidencia = Convert.ToInt32(dr["fk_residencia"].ToString());
+                    string desccripcion = dr["descripcion"].ToString();
+                    temp = new Actividad(nombre,tipo,horario,fecha.Date,desccripcion,rseidencia,id);
                     list.Add(temp);
                 }
 
-
+                
 
                 dr.Close();
                 cnx.CloseConnection();

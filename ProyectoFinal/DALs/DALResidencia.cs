@@ -24,7 +24,7 @@ namespace ProyectoFinal.DALs
                 cnx.OpenConection();
 
                 string sql = @"
-                SELECT * FROM Residencia WHERE email = @mail AND contrasena = @pass";
+                SELECT * FROM Residencia WHERE email = @mail AND password = @pass";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
                 SqlParameter mail = new SqlParameter("@mail", System.Data.SqlDbType.NVarChar, 50);
@@ -37,7 +37,7 @@ namespace ProyectoFinal.DALs
 
                 while (dr.Read())
                 {
-                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToInt32(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[3]));
+                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[3]));
 
                 }
 
@@ -76,7 +76,8 @@ namespace ProyectoFinal.DALs
                 email.Value = r.Email;
                 cmd.Parameters.Add(email);
 
-                SqlParameter telefono = new SqlParameter("@tel", r.Telefono);                
+                SqlParameter telefono = new SqlParameter("@tel", System.Data.SqlDbType.NVarChar, 50);
+                telefono.Value = r.Telefono;
                 cmd.Parameters.Add(telefono);
 
                 SqlParameter pass = new SqlParameter("@pass", System.Data.SqlDbType.NVarChar, 50);
@@ -85,7 +86,7 @@ namespace ProyectoFinal.DALs
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 cmd.ExecuteNonQuery();
-                
+
                 cnx.CloseConnection();
                 return temp;
             }

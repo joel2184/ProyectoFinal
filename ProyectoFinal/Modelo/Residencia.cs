@@ -11,7 +11,7 @@ namespace ProyectoFinal.Modelo
         string direccion;
         string email;
         string password;
-        int telefono;
+        string telefono;
 
         int id_Residencia;
 
@@ -19,7 +19,7 @@ namespace ProyectoFinal.Modelo
         {
         }
 
-        public Residencia(string nombre, string direccion, string mail, int telefono,string pass, int id_Residencia)
+        public Residencia(string nombre, string direccion, string mail, string telefono,string pass, int id_Residencia)
         {
             this.nombre = nombre;
             this.direccion = direccion;
@@ -29,12 +29,22 @@ namespace ProyectoFinal.Modelo
             this.id_Residencia = id_Residencia;
         }
 
+        public Residencia(string nombre, string direccion, string mail, string telefono, string pass)
+        {
+            this.nombre = nombre;
+            this.direccion = direccion;
+            this.email = mail;
+            this.telefono = telefono;
+            this.password = pass;
+
+        }
+
         public string Nombre
         {
             get { return nombre; }
             set { nombre = value; }
         }
-        public int Telefono
+        public string Telefono
         {
             get { return telefono; }
             set { telefono = value; }
