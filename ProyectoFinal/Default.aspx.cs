@@ -58,6 +58,7 @@ namespace ProyectoFinal
             else if (ENTRETENIMIENTO.Checked)
             {
                 buscarActividades("Entretenimiento");
+
             }
             else if (EDUCATIVA.Checked)
             {
