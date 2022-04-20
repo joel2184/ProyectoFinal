@@ -11,7 +11,7 @@ namespace ProyectoFinal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Voluntario"] == null && Session["Residencia"] == null)
+            if (Session["Voluntario"] == null)
             {
                 //Alert("dcede");
                 Response.Redirect("Default.aspx");

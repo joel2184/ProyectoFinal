@@ -37,7 +37,7 @@ namespace ProyectoFinal.DALs
 
                 while (dr.Read())
                 {
-                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[3]));
+                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToDecimal(dr[6]), Convert.ToDecimal(dr[7]));
 
                 }
 
@@ -72,7 +72,7 @@ namespace ProyectoFinal.DALs
 
                 while (dr.Read())
                 {
-                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[3]));
+                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToDecimal(dr[6]), Convert.ToDecimal(dr[7]));
 
                 }
 
@@ -94,7 +94,7 @@ namespace ProyectoFinal.DALs
             {
                 cnx.OpenConection();
 
-                String sql = "INSERT INTO Residencia (nombre,direccion,email,telefono,password) VALUES (@nom,@dir,@mail, @tel, @pass)";
+                String sql = "INSERT INTO Residencia (nombre,direccion,email,telefono,password,latitiud,longitud) VALUES (@nom,@dir,@mail, @tel, @pass, @lat, @lon)";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
 
@@ -117,6 +117,15 @@ namespace ProyectoFinal.DALs
                 SqlParameter pass = new SqlParameter("@pass", System.Data.SqlDbType.NVarChar, 50);
                 pass.Value = r.Password;
                 cmd.Parameters.Add(pass);
+
+                SqlParameter lat = new SqlParameter("@lat", System.Data.SqlDbType.Decimal, 50);
+                pass.Value = r.Latitud;
+                cmd.Parameters.Add(lat);
+
+                SqlParameter lon = new SqlParameter("@lon", System.Data.SqlDbType.Decimal, 50);
+                pass.Value = r.Longitud;
+                cmd.Parameters.Add(lon);
+
                 SqlDataReader dr = cmd.ExecuteReader();
 
                 cmd.ExecuteNonQuery();
