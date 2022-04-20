@@ -132,7 +132,7 @@ namespace ProyectoFinal.DALs
 
                 while (dr.Read())
                 {
-                     a = new Actividad(Convert.ToString(dr[0]), Convert.ToString(dr[1]), TimeSpan.Parse((string)dr[2]), Convert.ToDateTime(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToInt32(dr[6]));
+                     a = new Actividad(Convert.ToString(dr[0]), Convert.ToString(dr[1]), TimeSpan.Parse(Convert.ToString(dr[2])), Convert.ToDateTime(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToInt32(dr[6]));
                 }
 
 

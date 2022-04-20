@@ -15,14 +15,14 @@ namespace ProyectoFinal
         public Actividad actividadActual;
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            if (Session["Voluntario"] == null && Session["Residencia"] == null)
+            
+            if (Session["Voluntario"] == null)
             {
                 //Alert("dcede");
                 Response.Redirect("Default.aspx");
 
             }
-            */
+            
 
             if (!this.IsPostBack)
             {
@@ -30,7 +30,7 @@ namespace ProyectoFinal
                 int id = Convert.ToInt32(Request.QueryString["id"]);
 
 
-                DALActividad dalA = new DALs.DALActividad();
+                DALActividad dalA = new DALActividad();
                 actividadActual = dalA.SelectbyID(id);
 
                 mostrarActividad(actividadActual);
@@ -52,17 +52,17 @@ namespace ProyectoFinal
               r = dalR.FindById(a.Residencia);
               string estrcuctura = "";
 
-               estrcuctura = "<div class='container'>" +
+              estrcuctura = "<div class='container'>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-6'><h1 id ='titleActividad'>"+a.Nombre+"</h1></div>" +
                                     "<div class='col-md-6'><h1 id ='nombreResi'>"+r.Nombre+"</h1></div>" +
                                       "</div>" +
                                       "<div class='row'>" +
-                                      "<div class='col-md-6'><h3 id='tipo'>"+a.Tipo+"</h3></div>" +
+                                      "<div class='col-md-6'><p id='tipo'>"+"Tìpo de actividad: "+a.Tipo+"</p></div>" +
                                       "<div class='col-md-6'><p id='direccion'>"+r.Direccion+"</p></div>" +
                                       "</div>" +
                                       "<div class='row'>" +
-                                      "<div class='col-md-6'><b id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</b></div>" +
+                                      "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
                                     "<div class='col-md-6'><p id='tel'>"+r.Telefono+"</p></div>" +
                                   "</div>" +
                                    "<div class='row'>" +
