@@ -62,7 +62,7 @@ namespace ProyectoFinal.DALs
                 cnx.OpenConection();
 
                 string sql = @"
-                SELECT * FROM Residencia WHERE id_residencia = @pId";
+                SELECT * FROM Residencia WHERE Id_residencia = @pId";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
                 SqlParameter ID = new SqlParameter("@pId", System.Data.SqlDbType.Int);

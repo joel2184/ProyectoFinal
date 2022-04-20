@@ -116,11 +116,11 @@ namespace ProyectoFinal
             foreach (Actividad a in listActividades)
             {
                 Residencia r = new Residencia();
-                DALResidencia dalR = new DALs.DALResidencia();
+                DALResidencia dalR = new DALResidencia();
                 r = dalR.FindById(a.Residencia);
                 string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='news-card'>" +
-                                    "<a href='Contact.aspx' class='news-card__card-link'></a>" +
+                                    "<a href='Contact.aspx?id=" +a.Id_actividad +"' class='news-card__card-link'></a>" +
                                     "<img src='"+ img + "' alt='' class='news-card__image'>" +
                                     "<div class='news-card__text-wrapper'>" +
                                       "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
@@ -153,7 +153,7 @@ namespace ProyectoFinal
                 r = dalR.FindById(a.Residencia);
                 string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='news-card'>" +
-                                    "<a href='Contact.aspx' class='news-card__card-link'></a>" +
+                                    "<a href='Contact.aspx?id='" + a.Id_actividad + " class='news-card__card-link'></a>" +
                                     "<img src='" + img + "' alt='' class='news-card__image'>" +
                                     "<div class='news-card__text-wrapper'>" +
                                       "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +

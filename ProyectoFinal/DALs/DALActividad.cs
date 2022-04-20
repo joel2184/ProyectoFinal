@@ -149,8 +149,47 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+
+        public Actividad SelectbyID(int id)
+        {
+            //list.Clear();
+            try
+            {
+                cnx.OpenConection();
+
+                string sql = @"
+                SELECT * FROM Actividades
+                WHERE id_actividad = @pId";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+                SqlParameter ID = new SqlParameter("@pId", System.Data.SqlDbType.Int);
+                ID.Value = id;
+                cmd.Parameters.Add(ID);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                Actividad a = new Actividad();
+
+                while (dr.Read())
+                {
+                     a = new Actividad(Convert.ToString(dr[0]), Convert.ToString(dr[1]), TimeSpan.Parse(Convert.ToString(dr[2])), Convert.ToDateTime(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToInt32(dr[6]));
+                }
+
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return a;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar actividades " + ee);
+                return null;
+            }
+        }
         public Actividad InsertActividad(Actividad r)
         {
+            
             try
             {
                 cnx.OpenConection();
