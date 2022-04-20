@@ -72,5 +72,11 @@ namespace ProyectoFinal.Modelo
             get { return password; }
             set { password = value; }
         }
+
+        public int Id_Voluntario
+        {
+            get { return id_Voluntario; }
+            set { id_Voluntario = value; }
+        }
     }
 }

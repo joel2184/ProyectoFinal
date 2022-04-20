@@ -42,6 +42,15 @@ namespace ProyectoFinal
         protected global::System.Web.UI.HtmlControls.HtmlButton idRegistro;
 
         /// <summary>
+        /// Control btnResiPannel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResiPannel;
+
+        /// <summary>
         /// Control btnLogOut.
         /// </summary>
         /// <remarks>

@@ -16,11 +16,18 @@ namespace ProyectoFinal
         protected void Page_Load(object sender, EventArgs e)
         {
             btnLogOut.Visible = false;
+            btnResiPannel.Visible = false;
+
             if (Session["Voluntario"] != null || Session["Residencia"] != null)
             {
+                if (Session["Residencia"] != null)
+                {
+                    btnResiPannel.Visible = true;
+                }
                 idInicio.Visible = false;
                 idRegistro.Visible = false;
                 btnLogOut.Visible = true;
+                
             }
             if (Request.Cookies["email"] != null && Request.Cookies["password"] != null)
             {
@@ -42,16 +49,17 @@ namespace ProyectoFinal
 
             if (tempv != null || tempr != null)
             {
-                
-                if (tempv != null)
-                    Session["Voluntario"] = tempv;
-                else
-                    Session["Residencia"] = tempr;
-
                 if (rememberme.Checked == true)
                     addCookie(tempv, tempr);
 
-                Response.Redirect("About.aspx");
+                if (tempv != null)
+                    Session["Voluntario"] = tempv.Id_Voluntario;
+                else
+                {
+                    Session["Residencia"] = tempr.Id_Residencia;
+                    Response.Redirect("ResiPannel.aspx");
+                }
+                                  
 
             }
             else
@@ -73,6 +81,15 @@ namespace ProyectoFinal
 
 
             }
+        }
+
+        public void btnResiPannel_Click(object sender, EventArgs e)
+        {
+            if (Session["Residencia"] != null)
+            {             
+                Response.Redirect("ResiPannel.aspx");
+            }
+              
         }
 
         protected void btnVolu_Click(object sender, EventArgs e)
@@ -139,5 +156,6 @@ namespace ProyectoFinal
             }
 
         }
+        
     }
 }

@@ -12,6 +12,8 @@ namespace ProyectoFinal.Modelo
         string email;
         string password;
         string telefono;
+        decimal latitud;
+        decimal longitud;
 
         int id_Residencia;
 
@@ -19,7 +21,7 @@ namespace ProyectoFinal.Modelo
         {
         }
 
-        public Residencia(string nombre, string direccion, string mail, string telefono,string pass, int id_Residencia)
+        public Residencia(string nombre, string direccion, string mail, string telefono,string pass, int id_Residencia, decimal lat, decimal longi)
         {
             this.nombre = nombre;
             this.direccion = direccion;
@@ -27,6 +29,8 @@ namespace ProyectoFinal.Modelo
             this.telefono = telefono;
             this.password = pass;
             this.id_Residencia = id_Residencia;
+            this.latitud = lat;
+            this.longitud = longi;
         }
 
         public Residencia(string nombre, string direccion, string mail, string telefono, string pass)
@@ -35,7 +39,7 @@ namespace ProyectoFinal.Modelo
             this.direccion = direccion;
             this.email = mail;
             this.telefono = telefono;
-            this.password = pass;
+            this.password = pass;           
 
         }
 
@@ -64,5 +68,21 @@ namespace ProyectoFinal.Modelo
             get { return password; }
             set { password = value; }
         }
+        public int Id_Residencia
+        {
+            get { return id_Residencia; }
+            set { id_Residencia = value; }
+        }
+        public decimal Latitud
+        {
+            get { return latitud; }
+            set { latitud = value; }
+        }
+        public decimal Longitud
+        {
+            get { return longitud; }
+            set { longitud = value; }
+        }
+
     }
 }
