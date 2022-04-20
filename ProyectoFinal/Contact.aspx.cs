@@ -16,7 +16,7 @@ namespace ProyectoFinal
         static int idActividad;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            btnCancelar.Visible = false;
             if (Session["Voluntario"] == null)
             {
                 //Alert("dcede");
@@ -39,7 +39,7 @@ namespace ProyectoFinal
 
 
 
-
+            
 
 
         }
@@ -56,8 +56,9 @@ namespace ProyectoFinal
                 DALResidencia dalR = new DALResidencia();
                 r = dalR.FindById(a.Residencia);
                 string estrcuctura = "";
-
+                string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='container'>" +
+                                       "<img src='" + img + "' alt='' style='height: 208px; width: 350px; float: right'>" +
                                       "<div class='row'>" +
                                       "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
                                       "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
@@ -78,7 +79,9 @@ namespace ProyectoFinal
                 sb.Append(estrcuctura);
                 btnApuntarse.Visible = true;
                 Apuntado.Visible = false;
+                btnCancelar.Visible = false;
                 divActividad.Text = sb.ToString();
+
             }
             else
             {
@@ -88,8 +91,9 @@ namespace ProyectoFinal
                 DALResidencia dalR = new DALResidencia();
                 r = dalR.FindById(a.Residencia);
                 string estrcuctura = "";
-
+                string img = "Images/" + a.Tipo.ToString() + ".jpg";
                 estrcuctura = "<div class='container'>" +
+                              "<img src='" + img + "' alt=''style='height: 208px; width: 350px; float: right'>" +
                                       "<div class='row'>" +
                                       "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
                                       "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
@@ -110,7 +114,9 @@ namespace ProyectoFinal
                 sb.Append(estrcuctura);
                 btnApuntarse.Visible = false;
                 Apuntado.Visible = true;
+                btnCancelar.Visible = true;
                 divActividad.Text = sb.ToString();
+
             }
 
 
@@ -125,6 +131,16 @@ namespace ProyectoFinal
             dalVolAct.InsertActividadVoluntario(idActividad, (int)Session["Voluntario"]);
             Response.Redirect(Request.RawUrl);
         }
+        public void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+            DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
+            dalVolAct.DeleteActividadVoluntario(idActividad, (int)Session["Voluntario"]);
+            
+            Response.Redirect(Request.RawUrl);
+            //Apuntado.Text = "Has cancelado el voluntariado de forma exitosa";
+        }
+        
 
     }
 }

@@ -128,7 +128,7 @@ namespace ProyectoFinal
                                       "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
                                       "<div class='news-card__details-wrapper'>" +
                                       "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
-                                        "<a href = '#' class='btn'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                        "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
                                       "</div>" +
                                     "</div>" +
                                   "</div>";
@@ -161,7 +161,7 @@ namespace ProyectoFinal
                                       "<div class='news-card__post-date'>" + r.Direccion +"</div>" +
                                       "<div class='news-card__details-wrapper'>" +
                                       "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
-                                        "<a href = '#' class='btn'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                        "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
                                       "</div>" +
                                     "</div>" +
                                   "</div>";

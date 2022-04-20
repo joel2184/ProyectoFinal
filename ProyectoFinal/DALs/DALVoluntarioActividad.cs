@@ -86,5 +86,34 @@ namespace ProyectoFinal.DALs
                 
             }
         }
+        public void DeleteActividadVoluntario(int idActividad, int idVoluntario)
+        {
+            try
+            {
+                cnx.OpenConection();
+
+                String sql = "DELETE FROM Voluntario_Actividad WHERE fk_voluntario = @pIdVOL AND fk_actividad = @pIdACT;";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+
+                SqlParameter idAct = new SqlParameter("@pIdACT", System.Data.SqlDbType.Int);
+                SqlParameter idVol = new SqlParameter("@pIdVOL", System.Data.SqlDbType.Int);
+                idAct.Value = idActividad;
+                idVol.Value = idVoluntario;
+                cmd.Parameters.Add(idAct);
+                cmd.Parameters.Add(idVol);
+
+                cmd.ExecuteNonQuery();
+
+                cnx.CloseConnection();
+
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido añadir la actividad " + ee);
+
+            }
+        }
     }
 }
