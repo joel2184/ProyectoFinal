@@ -62,6 +62,45 @@ namespace ProyectoFinal.DALs
             }
         }
 
+        public List<Actividad> SelectWhereIdResi(int id)
+        {
+            //list.Clear();
+            try
+            {
+                cnx.OpenConection();
+
+                string sql = @"
+                SELECT * FROM Actividades WHERE fk_residencia = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+                SqlParameter residencia = new SqlParameter("@res", id);
+                cmd.Parameters.Add(residencia);
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                List<Actividad> list = new List<Actividad>();
+                
+
+                while (dr.Read())
+                {
+                    temp = new Actividad(dr[0].ToString(), dr[1].ToString(), TimeSpan.Parse(dr[2].ToString()), Convert.ToDateTime(dr[3].ToString()), dr[4].ToString(), Convert.ToInt32(dr[5].ToString()), Convert.ToInt32(dr[6].ToString()));
+                    
+                    list.Add(temp);
+                }
+
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return list;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar actividades " + ee);
+                return null;
+            }
+        }
+
         public List<Actividad> SelectTipo(string tipoActividad)
         {
             //list.Clear();
@@ -116,23 +155,28 @@ namespace ProyectoFinal.DALs
             {
                 cnx.OpenConection();
 
-                String sql = "INSERT INTO Actividades (nombre,tipo,horario,descripcion,residencia) VALUES (@nom, @tipo , @hor, @desc, @res)";
+                String sql = "INSERT INTO Actividades (nombre,tipo,horario,fecha,descripcion,fk_residencia) VALUES (@nom, @tipo, @hor, @fech, @desc, @res)";
+
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
 
-                SqlParameter nombre = new SqlParameter("@nom", System.Data.SqlDbType.NVarChar, 50);
+                SqlParameter nombre = new SqlParameter("@nom", System.Data.SqlDbType.VarChar, 50);
                 nombre.Value = r.Nombre;
                 cmd.Parameters.Add(nombre);
 
-                SqlParameter tipo = new SqlParameter("@tipo", System.Data.SqlDbType.NVarChar);
+                SqlParameter tipo = new SqlParameter("@tipo", System.Data.SqlDbType.VarChar, 50);
                 tipo.Value = r.Tipo;
                 cmd.Parameters.Add(tipo);
 
-                SqlParameter horario = new SqlParameter("@hor", System.Data.SqlDbType.NVarChar, 50);
+                SqlParameter horario = new SqlParameter("@hor", System.Data.SqlDbType.Time, 0);
                 horario.Value = r.Horario;
                 cmd.Parameters.Add(horario);
 
-                SqlParameter descripcion = new SqlParameter("@desc", System.Data.SqlDbType.NVarChar, 50);
+                SqlParameter fecha = new SqlParameter("@fech", System.Data.SqlDbType.Date, 0);
+                fecha.Value = r.Fecha;
+                cmd.Parameters.Add(fecha);
+
+                SqlParameter descripcion = new SqlParameter("@desc", System.Data.SqlDbType.VarChar, 100);
                 descripcion.Value = r.Descripcion;
                 cmd.Parameters.Add(descripcion);
 

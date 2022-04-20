@@ -2,6 +2,7 @@
 using ProyectoFinal.Modelo;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,6 +18,8 @@ namespace ProyectoFinal
         {
             btnLogOut.Visible = false;
             btnResiPannel.Visible = false;
+            btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
+
 
             if (Session["Voluntario"] != null || Session["Residencia"] != null)
             {
@@ -36,7 +39,8 @@ namespace ProyectoFinal
             }
 
             divResi.Visible = false;
-            btnVolu.Enabled = false;
+            btnVolu.BackColor = Color.Green;
+            btnResi.BackColor = Color.Gray;
         }
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -96,8 +100,9 @@ namespace ProyectoFinal
         {
             divVolu.Visible = true;
             divResi.Visible = false;
-            btnVolu.Enabled = false;
-            btnResi.Enabled = true;
+            btnVolu.BackColor = Color.Green;
+            btnResi.BackColor = Color.Gray;
+            btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
         }
 
 
@@ -105,8 +110,11 @@ namespace ProyectoFinal
         {
             divVolu.Visible = false;
             divResi.Visible = true;
-            btnVolu.Enabled = true;
-            btnResi.Enabled = false;
+            btnVolu.BackColor = Color.Gray;
+            btnResi.BackColor = Color.Green;
+            btnCurrentRegister.Text = "REGISTRANDO COMO RESIDENCIA";
+           
+
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)
