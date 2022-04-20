@@ -57,25 +57,11 @@ namespace ProyectoFinal
                 r = dalR.FindById(a.Residencia);
                 string estrcuctura = "";
                 string img = "Images/" + a.Tipo.ToString() + ".jpg";
-                estrcuctura = "<div class='container'>" +
-                                       "<img src='" + img + "' alt='' style='height: 208px; width: 350px; float: right'>" +
-                                      "<div class='row'>" +
-                                      "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
-                                      "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
-                                        "</div>" +
-                                        "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='tipo'>" + "Tìpo de actividad: " + a.Tipo + "</p></div>" +
-                                        "<div class='col-md-6'><p id='direccion'>" + r.Direccion + "</p></div>" +
-                                        "</div>" +
-                                        "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
-                                      "<div class='col-md-6'><p id='tel'>" + r.Telefono + "</p></div>" +
-                                    "</div>" +
-                                     "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='descripcion'>" + a.Descripcion + "</p></div>" +
-                                        "<div class='col-md-6'><p id='mail'>" + r.Email + "</p></div>" +
-                                        "</div>" +
-                                        "</div>";
+                estrcuctura = "<div class='container'><div class='row g-3'><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + a.Nombre + "</h2><p>" + String.Format("{0:d/M/yyyy}", a.Fecha) + ", " + a.Horario.ToString() + "</p><p>" + a.Descripcion + "</p></div><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + r.Nombre + 
+                    "</h2><p>" + r.Direccion + "</p><p>" + r.Email + "</p><p>" + r.Telefono + "</p></div><div class='col'><img src ='" + img+"' alt = 'Italian Trulli' style = 'height: 100%; width:100%'>" +
+                    "</div></div></div>";
+
+
                 sb.Append(estrcuctura);
                 btnApuntarse.Visible = true;
                 Apuntado.Visible = false;
@@ -92,25 +78,9 @@ namespace ProyectoFinal
                 r = dalR.FindById(a.Residencia);
                 string estrcuctura = "";
                 string img = "Images/" + a.Tipo.ToString() + ".jpg";
-                estrcuctura = "<div class='container'>" +
-                              "<img src='" + img + "' alt=''style='height: 208px; width: 350px; float: right'>" +
-                                      "<div class='row'>" +
-                                      "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
-                                      "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
-                                        "</div>" +
-                                        "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='tipo'>" + "Tìpo de actividad: " + a.Tipo + "</p></div>" +
-                                        "<div class='col-md-6'><p id='direccion'>" + r.Direccion + "</p></div>" +
-                                        "</div>" +
-                                        "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
-                                      "<div class='col-md-6'><p id='tel'>" + r.Telefono + "</p></div>" +
-                                    "</div>" +
-                                     "<div class='row'>" +
-                                        "<div class='col-md-6'><p id='descripcion'>" + a.Descripcion + "</p></div>" +
-                                        "<div class='col-md-6'><p id='mail'>" + r.Email + "</p></div>" +
-                                        "</div>" +
-                                        "</div>" ;
+                estrcuctura = "<div class='container'><div class='row g-3'><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + a.Nombre + "</h2><p>" + String.Format("{0:d/M/yyyy}", a.Fecha) + ", " + a.Horario.ToString() + "</p><p>" + a.Descripcion + "</p></div><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + r.Nombre +
+                    "</h2><p>" + r.Direccion + "</p><p>" + r.Email + "</p><p>" + r.Telefono + "</p></div><div class='col'><img src ='" + img + "' alt = 'Italian Trulli' style = 'height: 100%; width:100%'>" +
+                    "</div></div></div>";
                 sb.Append(estrcuctura);
                 btnApuntarse.Visible = false;
                 Apuntado.Visible = true;
