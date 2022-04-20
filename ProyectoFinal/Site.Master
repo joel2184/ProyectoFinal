@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>Algo</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <!-- Bootstrap icons-->
@@ -105,17 +105,18 @@
                     <div class="modal-body">
 
                         <div>
-                            <asp:ScriptManager ID="ScriptManager1"
-                                runat="server" />
+                            <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
                                     <div>
+                                        <asp:Label ID="btnCurrentRegister" runat="server" Text="LAvel"></asp:Label>
+                                        <br />
                                         <asp:Button ID="btnVolu" class="btn btn-primary btn-sm" runat="server" Text="Voluntario" OnClick="btnVolu_Click" />
                                         <asp:Button ID="btnResi" class="btn btn-primary btn-sm" runat="server" Text="Residencia" OnClick="btnResi_Click" />
-                                    </div>
-                                    <div runat="server" class="form-floating" id="divVolu">
 
+                                    </div>
+                                    <div runat="server" class="form-floating" id="divVolu">                                         
                                         <asp:Label ID="Label9" runat="server" Text="DNI: "></asp:Label>
                                         <br />
                                         <asp:TextBox ID="txtDni" class="form-control" runat="server"></asp:TextBox>
