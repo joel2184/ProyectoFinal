@@ -198,6 +198,7 @@
     <Compile Include="DALs\DALActividad.cs" />
     <Compile Include="DALs\DALResidencia.cs" />
     <Compile Include="DALs\DALVoluntario.cs" />
+    <Compile Include="DALs\DALVoluntarioActividad.cs" />
     <Compile Include="Modelo\DBConnect.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

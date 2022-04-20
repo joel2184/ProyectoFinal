@@ -150,6 +150,7 @@ namespace ProyectoFinal.DALs
         }
         public Actividad InsertActividad(Actividad r)
         {
+            
             try
             {
                 cnx.OpenConection();

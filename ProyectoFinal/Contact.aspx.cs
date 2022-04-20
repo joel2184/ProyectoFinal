@@ -13,6 +13,7 @@ namespace ProyectoFinal
     public partial class Contact : Page
     {
         public Actividad actividadActual;
+        static int idActividad;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -32,7 +33,7 @@ namespace ProyectoFinal
 
                 DALActividad dalA = new DALActividad();
                 actividadActual = dalA.SelectbyID(id);
-
+                idActividad = id;
                 mostrarActividad(actividadActual);
             }
 
@@ -42,44 +43,87 @@ namespace ProyectoFinal
 
 
         }
+
         public void mostrarActividad(Actividad a)
         {
+            DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
 
-              StringBuilder sb = new StringBuilder();
+            if (dalVolAct.SelectbyIDs(a.Id_actividad, (int)Session["Voluntario"]) == false)
+            {
+                StringBuilder sb = new StringBuilder();
 
-              Residencia r = new Residencia();
-              DALResidencia dalR = new DALResidencia();
-              r = dalR.FindById(a.Residencia);
-              string estrcuctura = "";
+                Residencia r = new Residencia();
+                DALResidencia dalR = new DALResidencia();
+                r = dalR.FindById(a.Residencia);
+                string estrcuctura = "";
 
-              estrcuctura = "<div class='container'>" +
-                                    "<div class='row'>" +
-                                    "<div class='col-md-6'><h1 id ='titleActividad'>"+a.Nombre+"</h1></div>" +
-                                    "<div class='col-md-6'><h1 id ='nombreResi'>"+r.Nombre+"</h1></div>" +
-                                      "</div>" +
+                estrcuctura = "<div class='container'>" +
                                       "<div class='row'>" +
-                                      "<div class='col-md-6'><p id='tipo'>"+"Tìpo de actividad: "+a.Tipo+"</p></div>" +
-                                      "<div class='col-md-6'><p id='direccion'>"+r.Direccion+"</p></div>" +
-                                      "</div>" +
-                                      "<div class='row'>" +
-                                      "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
-                                    "<div class='col-md-6'><p id='tel'>"+r.Telefono+"</p></div>" +
-                                  "</div>" +
-                                   "<div class='row'>" +
-                                      "<div class='col-md-6'><p id='descripcion'>"+a.Descripcion+"</p></div>" +
-                                      "<div class='col-md-6'><p id='mail'>"+r.Email+"</p></div>" +
-                                      "</div>"+
-                                      "</div>"+
-                                      "<button type='button' class='btn'>APUNTARSE</button>";
+                                      "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
+                                      "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
+                                        "</div>" +
+                                        "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='tipo'>" + "Tìpo de actividad: " + a.Tipo + "</p></div>" +
+                                        "<div class='col-md-6'><p id='direccion'>" + r.Direccion + "</p></div>" +
+                                        "</div>" +
+                                        "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
+                                      "<div class='col-md-6'><p id='tel'>" + r.Telefono + "</p></div>" +
+                                    "</div>" +
+                                     "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='descripcion'>" + a.Descripcion + "</p></div>" +
+                                        "<div class='col-md-6'><p id='mail'>" + r.Email + "</p></div>" +
+                                        "</div>" +
+                                        "</div>";
                 sb.Append(estrcuctura);
+                btnApuntarse.Visible = true;
+                Apuntado.Visible = false;
+                divActividad.Text = sb.ToString();
+            }
+            else
+            {
+                StringBuilder sb = new StringBuilder();
+
+                Residencia r = new Residencia();
+                DALResidencia dalR = new DALResidencia();
+                r = dalR.FindById(a.Residencia);
+                string estrcuctura = "";
+
+                estrcuctura = "<div class='container'>" +
+                                      "<div class='row'>" +
+                                      "<div class='col-md-6'><h1 id ='titleActividad'>" + a.Nombre + "</h1></div>" +
+                                      "<div class='col-md-6'><h1 id ='nombreResi'>" + r.Nombre + "</h1></div>" +
+                                        "</div>" +
+                                        "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='tipo'>" + "Tìpo de actividad: " + a.Tipo + "</p></div>" +
+                                        "<div class='col-md-6'><p id='direccion'>" + r.Direccion + "</p></div>" +
+                                        "</div>" +
+                                        "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='fecha'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</p></div>" +
+                                      "<div class='col-md-6'><p id='tel'>" + r.Telefono + "</p></div>" +
+                                    "</div>" +
+                                     "<div class='row'>" +
+                                        "<div class='col-md-6'><p id='descripcion'>" + a.Descripcion + "</p></div>" +
+                                        "<div class='col-md-6'><p id='mail'>" + r.Email + "</p></div>" +
+                                        "</div>" +
+                                        "</div>" ;
+                sb.Append(estrcuctura);
+                btnApuntarse.Visible = false;
+                Apuntado.Visible = true;
+                divActividad.Text = sb.ToString();
+            }
+
+
             
 
-            divActividad.Text = sb.ToString();
 
         }
-        protected void Alert(string message)
+        public void btnApuntarse_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
+            
+            DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
+            dalVolAct.InsertActividadVoluntario(idActividad, (int)Session["Voluntario"]);
+            Response.Redirect(Request.RawUrl);
         }
 
     }
