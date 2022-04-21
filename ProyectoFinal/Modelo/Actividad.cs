@@ -31,6 +31,16 @@ namespace ProyectoFinal.Modelo
             this.id_actividad = id_act;
         }
 
+        public Actividad(string nom, string tipo, TimeSpan horario, DateTime fecha, string descripcion, int residencia)
+        {
+            this.nombre = nom;
+            this.tipo = tipo;
+            this.horario = horario;
+            this.fecha = fecha;
+            this.descripcion = descripcion;
+            this.residencia = residencia;
+        }
+
         public string Nombre
         {
             get { return nombre; }

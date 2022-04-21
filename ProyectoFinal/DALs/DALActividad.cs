@@ -70,7 +70,7 @@ namespace ProyectoFinal.DALs
                 cnx.OpenConection();
 
                 string sql = @"
-                SELECT * FROM Actividades WHERE fk_residencia = @id";
+                SELECT * FROM Voluntario_Actividad WHERE fk_Actividad in (SELECT id_actividad FROM Actividades WHERE fk_residencia = @id)";
 
                 SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
                 SqlParameter residencia = new SqlParameter("@res", id);
@@ -215,7 +215,7 @@ namespace ProyectoFinal.DALs
                 fecha.Value = r.Fecha;
                 cmd.Parameters.Add(fecha);
 
-                SqlParameter descripcion = new SqlParameter("@desc", System.Data.SqlDbType.VarChar, 100);
+                SqlParameter descripcion = new SqlParameter("@desc", System.Data.SqlDbType.VarChar, 300);
                 descripcion.Value = r.Descripcion;
                 cmd.Parameters.Add(descripcion);
 
@@ -233,6 +233,7 @@ namespace ProyectoFinal.DALs
                 Console.WriteLine("No se ha podido añadir la actividad " + ee);
                 return null;
             }
+
         }
     }
 }

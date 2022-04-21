@@ -16,81 +16,48 @@
     <div>
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
+                
+                    <div runat="server" class="form-group" id="divNewAct">
+                        <br />
+                        <asp:Label ID="Label9" runat="server" Text="Título: "></asp:Label>
+                        <br />
+                        <asp:TextBox ID="txtNom" class="form-control" runat="server"></asp:TextBox>
+                        <br />
+                        <asp:Label ID="Label8" runat="server" Text="Tipo: "></asp:Label>
+                        <br />
+                        <asp:DropDownList ID="ddTipo" runat="server" class="form-control">
+                            <asp:ListItem>Ocio</asp:ListItem>
+                            <asp:ListItem>Taller</asp:ListItem>
+                            <asp:ListItem>Paseo</asp:ListItem>
+                            <asp:ListItem>Cine</asp:ListItem>
+                            <asp:ListItem>Educativa</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="Label11" runat="server" Text="Horario: "></asp:Label>
+                        <br />
+                        <input type="time" runat="server" class="form-control" id="txtHor">
+                        <br />
+                        <asp:Label ID="Label10" runat="server" Text="Fecha: "></asp:Label>
+                        <br />
+                        <input type="date" runat="server" class="form-control" id="txtFecha">
+                        <br />
+                        <asp:Label ID="Label3" runat="server" Text="Descripción: "></asp:Label>
+                        <br />
+                        <textarea class="form-control" runat="server" id="txtDesc" rows="3"></textarea>
 
-                <div runat="server" class="form-floating" id="divNewAct">
-                    <asp:Label ID="Label9" runat="server" Text="DNI: "></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtDni" class="form-control" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label8" runat="server" Text="Nombre: "></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtNomV" class="form-control" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label11" runat="server" Text="Telefono: "></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtTelV" class="form-control" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label10" runat="server" Text="Email: "></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtEmailV" class="form-control" runat="server"></asp:TextBox>
-                    <br />
-                    <asp:Label ID="Label13" runat="server" Text="Horario: "></asp:Label>
-                    <br />
-                    <asp:DropDownList ID="dlHor" runat="server">
-                        <asp:ListItem>mañanas</asp:ListItem>
-                        <asp:ListItem>tardes</asp:ListItem>
-                    </asp:DropDownList>
-                    <br />
-                    <asp:Label ID="Label12" runat="server" Text="Contraseña: "></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtPassV" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
-                </div>
+                        <asp:Button ID="btnSubmit" class="btn btn-primary btn-sm" runat="server" Text="CREAR" OnClick="btnSubmit_Click" />
 
-                <div runat="server" class="form-floating" id="divSeeVol">
+                    </div>
+           
+                <div runat="server" class="form-floating" id="divListVol">
+
+                    <asp:ListBox ID="listVolu" runat="server"></asp:ListBox>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
-    </div>
-
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">INICIAR SESSIÓN</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-floating">
-                        <asp:Label ID="Label1" runat="server" Text="Email"></asp:Label>
-                        <br />
-                        <asp:TextBox ID="txtMail" class="form-control" runat="server"></asp:TextBox>
-                    </div>
-                    <br>
-                    <div class="form-floating">
-                        <asp:Label ID="Label2" runat="server" Text="Contraseña"></asp:Label>
-                        <br />
-                        <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
-                    </div>
-                    <br>
-                    <div class="checkbox mb-1">
-                        <label>
-                            <input type="checkbox" runat="server" name="rememberme" id="rememberme">
-                            Recordarme
-                        </label>
-                    </div>
-
-                    <br>
-                    <div>
-                        ¿Notienes cuenta? <a href="#signUpModal">Crear una</a>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-secondary" Text="INICIAR SESIÓN" />
-                </div>
-            </div>
-        </div>
+        
     </div>
 </asp:Content>
+
 
 
