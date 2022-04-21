@@ -60,46 +60,7 @@ namespace ProyectoFinal.DALs
                 Console.WriteLine("No se ha podido encontrar actividades " + ee);
                 return null;
             }
-        }
-
-        public List<Actividad> SelectWhereIdResi(int id)
-        {
-            //list.Clear();
-            try
-            {
-                cnx.OpenConection();
-
-                string sql = @"
-                SELECT * FROM Voluntario_Actividad WHERE fk_Actividad in (SELECT id_actividad FROM Actividades WHERE fk_residencia = @id)";
-
-                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
-                SqlParameter residencia = new SqlParameter("@res", id);
-                cmd.Parameters.Add(residencia);
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                List<Actividad> list = new List<Actividad>();
-                
-
-                while (dr.Read())
-                {
-                    temp = new Actividad(dr[0].ToString(), dr[1].ToString(), TimeSpan.Parse(dr[2].ToString()), Convert.ToDateTime(dr[3].ToString()), dr[4].ToString(), Convert.ToInt32(dr[5].ToString()), Convert.ToInt32(dr[6].ToString()));
-                    
-                    list.Add(temp);
-                }
-
-
-
-                dr.Close();
-                cnx.CloseConnection();
-                return list;
-            }
-            catch (Exception ee)
-            {
-
-                Console.WriteLine("No se ha podido encontrar actividades " + ee);
-                return null;
-            }
-        }
+        }        
 
         public List<Actividad> SelectTipo(string tipoActividad)
         {
