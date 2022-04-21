@@ -13,6 +13,7 @@ namespace ProyectoFinal
     public partial class ResiPannel : Page
     {
         Residencia residenciaIniciada = null;
+        List<Volu_Acti> listBoth;
         protected void Page_Load(object sender, EventArgs e)
         {
             divNewAct.Visible = false;
@@ -51,7 +52,17 @@ namespace ProyectoFinal
             divNewAct.Visible = false;
             divListVol.Visible = true;
             btnActForm.BackColor =  Color.Gray;
-            btnVoluList.BackColor = Color.Green; 
+            btnVoluList.BackColor = Color.Green;
+            DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
+            listBoth = dalboth.SelectWhereIdResi((int)Session["Residencia"]);
+            if (listBoth != null)
+            {
+                foreach (Volu_Acti i in listBoth)
+                {
+                    listVolu.Items.Add(i.toString());
+                }
+            }
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
