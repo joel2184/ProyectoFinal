@@ -79,5 +79,10 @@ namespace ProyectoFinal.Modelo
             get { return id_actividad; }
             set { id_actividad = value; }
         }
+
+        public String toString()
+        {
+            return id_actividad + ", " + nombre;
+        }
     }
 }

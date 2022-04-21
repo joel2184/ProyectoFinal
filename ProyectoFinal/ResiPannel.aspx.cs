@@ -14,6 +14,8 @@ namespace ProyectoFinal
     {
         Residencia residenciaIniciada = null;
         List<Volu_Acti> listBoth;
+        Voluntario volu;
+        Actividad acti;
         protected void Page_Load(object sender, EventArgs e)
         {
             divNewAct.Visible = false;
@@ -49,20 +51,29 @@ namespace ProyectoFinal
         }
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
+            List<int> list = new List<int>();
             divNewAct.Visible = false;
             divListVol.Visible = true;
             btnActForm.BackColor =  Color.Gray;
             btnVoluList.BackColor = Color.Green;
             DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
-            listBoth = dalboth.SelectWhereIdResi((int)Session["Residencia"]);
-            if (listBoth != null)
+            DALActividad dalactividad = new DALActividad();
+            DALVoluntario dalvoluntario = new DALVoluntario();
+            list = dalboth.SelectAll();
+
+            for (int i = 0; i < list.Count(); i= i+2)
             {
-                foreach (Volu_Acti i in listBoth)
-                {
-                    listVolu.Items.Add(i.toString());
-                }
+                volu = dalvoluntario.SelectbyID(list[i]);
+                acti = dalactividad.SelectbyID(list[i + 1]);
+                lbVolu.Items.Add(volu.toString() + " PARA HACER " + acti.Nombre);
+
             }
+
             
+
+
+
+
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

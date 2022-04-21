@@ -78,5 +78,10 @@ namespace ProyectoFinal.Modelo
             get { return id_Voluntario; }
             set { id_Voluntario = value; }
         }
+
+        public String toString()
+        {
+            return "APUNTADO "+dni +" "+ nombre;
+        }
     }
 }
