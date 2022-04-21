@@ -73,16 +73,17 @@
         <asp:RadioButton value="TODAS" ID="TODAS" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonTodas_CheckedChanged" AutoPostBack="True" />
         <asp:RadioButton value="OCIO" ID="OCIO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonOcio_CheckedChanged" AutoPostBack="True" />
         <asp:RadioButton value="PASEO" ID="PASEO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonPaseo_CheckedChanged" AutoPostBack="True" />
-        <asp:RadioButton value="ENTRETENIMIENTO" ID="ENTRETENIMIENTO" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonEntretenimiento_CheckedChanged" AutoPostBack="True" />
+        <asp:RadioButton value="TALLER" ID="TALLER" class="radio" runat="server" GroupName="categories" OnCheckedChanged="RadioButtonTaller_CheckedChanged" AutoPostBack="True" />
         <asp:RadioButton value="EDUCATIVA" ID="EDUCATIVA" class="radio"  runat="server" GroupName="categories" OnCheckedChanged="RadioButtonEducativa_CheckedChanged" AutoPostBack="True" />
-
+         <asp:RadioButton value="CINE" ID="CINE" class="radio"  runat="server" GroupName="categories" OnCheckedChanged="RadioButtonCine_CheckedChanged" AutoPostBack="True" />
 
         <div class="container-category">
             <asp:Label ID="lblTODAS" runat="server" AssociatedControlID="TODAS">TODAS ACTIVIDADES</asp:Label>
             <asp:Label ID="lblOCIO" runat="server" AssociatedControlID="OCIO">OCIO</asp:Label>
             <asp:Label ID="lblPASEO" runat="server" AssociatedControlID="PASEO">PASEO</asp:Label>
-            <asp:Label ID="lblENTRETENIMIENTO" runat="server" AssociatedControlID="ENTRETENIMIENTO">ENTRETENIMIENTO</asp:Label>
+            <asp:Label ID="lblTALLER" runat="server" AssociatedControlID="TALLER">TALLER</asp:Label>
             <asp:Label ID="lblEDUCATIVA" runat="server" AssociatedControlID="EDUCATIVA">EDUCATIVA</asp:Label>
+            <asp:Label ID="lblCINE" runat="server" AssociatedControlID="CINE">CINE</asp:Label>
 
         </div>
      </div>

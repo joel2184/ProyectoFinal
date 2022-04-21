@@ -131,6 +131,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Images\Cine.jpg" />
     <Content Include="Images\slide1.png" />
     <Content Include="Images\Educativa.jpg" />
     <Content Include="Images\gabriele.jpg" />
@@ -143,6 +144,7 @@
     <Content Include="Images\Paseo.jpg" />
     <Content Include="Images\slide2.jpg" />
     <Content Include="Images\slide3.jpg" />
+    <Content Include="Images\Taller.jpg" />
     <Content Include="ResiPannel.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

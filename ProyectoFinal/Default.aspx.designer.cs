@@ -42,13 +42,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.RadioButton PASEO;
 
         /// <summary>
-        /// Control ENTRETENIMIENTO.
+        /// Control TALLER.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton ENTRETENIMIENTO;
+        protected global::System.Web.UI.WebControls.RadioButton TALLER;
 
         /// <summary>
         /// Control EDUCATIVA.
@@ -58,6 +58,15 @@ namespace ProyectoFinal
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton EDUCATIVA;
+
+        /// <summary>
+        /// Control CINE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton CINE;
 
         /// <summary>
         /// Control lblTODAS.
@@ -87,13 +96,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.Label lblPASEO;
 
         /// <summary>
-        /// Control lblENTRETENIMIENTO.
+        /// Control lblTALLER.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblENTRETENIMIENTO;
+        protected global::System.Web.UI.WebControls.Label lblTALLER;
 
         /// <summary>
         /// Control lblEDUCATIVA.
@@ -103,6 +112,15 @@ namespace ProyectoFinal
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEDUCATIVA;
+
+        /// <summary>
+        /// Control lblCINE.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCINE;
 
         /// <summary>
         /// Control divCards.

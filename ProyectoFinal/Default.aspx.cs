@@ -34,11 +34,15 @@ namespace ProyectoFinal
         {
             OpcionFiltro();
         }
-        protected void RadioButtonEntretenimiento_CheckedChanged(object sender, EventArgs e)
+        protected void RadioButtonTaller_CheckedChanged(object sender, EventArgs e)
         {
             OpcionFiltro();
         }
         protected void RadioButtonEducativa_CheckedChanged(object sender, EventArgs e)
+        {
+            OpcionFiltro();
+        }
+        protected void RadioButtonCine_CheckedChanged(object sender, EventArgs e)
         {
             OpcionFiltro();
         }
@@ -53,8 +57,9 @@ namespace ProyectoFinal
 
                 lblPASEO.Attributes.CssStyle.Clear();
                 lblOCIO.Attributes.CssStyle.Clear();
-                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblTALLER.Attributes.CssStyle.Clear();
                 lblEDUCATIVA.Attributes.CssStyle.Clear();
+                lblCINE.Attributes.CssStyle.Clear();
             }
             else if (OCIO.Checked)
             {
@@ -64,9 +69,10 @@ namespace ProyectoFinal
 
                 lblPASEO.Attributes.CssStyle.Clear();
                 lblTODAS.Attributes.CssStyle.Clear();
-                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblTALLER.Attributes.CssStyle.Clear();
                 lblEDUCATIVA.Attributes.CssStyle.Clear();
-                
+                lblCINE.Attributes.CssStyle.Clear();
+
             }
             else if (PASEO.Checked)
             {
@@ -77,19 +83,21 @@ namespace ProyectoFinal
 
                 lblTODAS.Attributes.CssStyle.Clear();
                 lblOCIO.Attributes.CssStyle.Clear();
-                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblTALLER.Attributes.CssStyle.Clear();
                 lblEDUCATIVA.Attributes.CssStyle.Clear();
+                lblCINE.Attributes.CssStyle.Clear();
             }
-            else if (ENTRETENIMIENTO.Checked)
+            else if (TALLER.Checked)
             {
-                buscarActividades("Entretenimiento");
-                lblENTRETENIMIENTO.Attributes.CssStyle.Add("background", "#46a2fd");
-                lblENTRETENIMIENTO.Attributes.CssStyle.Add("color", "#fff");
+                buscarActividades("Taller");
+                lblTALLER.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblTALLER.Attributes.CssStyle.Add("color", "#fff");
 
                 lblPASEO.Attributes.CssStyle.Clear();
                 lblOCIO.Attributes.CssStyle.Clear();
                 lblTODAS.Attributes.CssStyle.Clear();
                 lblEDUCATIVA.Attributes.CssStyle.Clear();
+                lblCINE.Attributes.CssStyle.Clear();
             }
             else if (EDUCATIVA.Checked)
             {
@@ -100,7 +108,21 @@ namespace ProyectoFinal
                 lblPASEO.Attributes.CssStyle.Clear();
                 lblOCIO.Attributes.CssStyle.Clear();
                 lblTODAS.Attributes.CssStyle.Clear();
-                lblENTRETENIMIENTO.Attributes.CssStyle.Clear();
+                lblTALLER.Attributes.CssStyle.Clear();
+                lblCINE.Attributes.CssStyle.Clear();
+            }
+            else if (CINE.Checked)
+            {
+                buscarActividades("Cine");
+                lblCINE.Attributes.CssStyle.Add("background", "#46a2fd");
+                lblCINE .Attributes.CssStyle.Add("color", "#fff");
+
+                lblPASEO.Attributes.CssStyle.Clear();
+                lblOCIO.Attributes.CssStyle.Clear();
+                lblTODAS.Attributes.CssStyle.Clear();
+                lblTALLER.Attributes.CssStyle.Clear();
+                lblEDUCATIVA.Attributes.CssStyle.Clear();
+
             }
         }
 
