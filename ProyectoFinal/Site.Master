@@ -62,16 +62,15 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-floating">
-                            <asp:TextBox ID="txtMail" class="form-control" runat="server" ></asp:TextBox>
-                            <label for="floatingEmail">Email</label>
+                            <asp:TextBox ID="txtMail" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                            <label for="txtMail">Email</label>
                             <br/>
                             
                         </div>
-                        <br>
                         <div class="form-floating">
-                            <asp:Label ID="Label2"  runat="server" Text="Contraseña"></asp:Label>
-                            <br />
-                            <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" TextMode="Password" class="form-control" runat="server" placeholder="Contraseña"></asp:TextBox>
+                            <label for="txtPassword">Contraseña</label>
+
                         </div>
                         <br>
                         <div class="checkbox mb-1">
@@ -109,59 +108,80 @@
                                     <div>
                                         <asp:Label ID="btnCurrentRegister" runat="server" Text="LAvel"></asp:Label>
                                         <br />
-                                        <asp:Button ID="btnVolu" class="btn btn-primary btn-sm" runat="server" Text="Voluntario" OnClick="btnVolu_Click" />
-                                        <asp:Button ID="btnResi" class="btn btn-primary btn-sm" runat="server" Text="Residencia" OnClick="btnResi_Click" />
+                                        <asp:Button ID="btnVolu" class="btn2" runat="server" Text="Voluntario" OnClick="btnVolu_Click" />
+                                        <asp:Button ID="btnResi" class="btn2" runat="server" Text="Residencia" OnClick="btnResi_Click" />
 
                                     </div>
-                                    <div runat="server" class="form-floating" id="divVolu">                                         
-                                        <asp:Label ID="Label9" runat="server" Text="DNI: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtDni" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label8" runat="server" Text="Nombre: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtNomV" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label11" runat="server" Text="Telefono: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtTelV" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label10" runat="server" Text="Email: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtEmailV" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label13" runat="server" Text="Horario: "></asp:Label>
-                                        <br />
-                                        <asp:DropDownList ID="dlHor" runat="server">
-                                            <asp:ListItem>mañanas</asp:ListItem>
-                                            <asp:ListItem>tardes</asp:ListItem>
-                                        </asp:DropDownList>
-                                        <br />
-                                        <asp:Label ID="Label12" runat="server" Text="Contraseña: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtPassV" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
+
+                                    <br />
+
+                                    <div runat="server" class="form-floating" id="divVolu">
+                                       <div class="form-floating">
+                                        <asp:TextBox ID="txtDni" class="form-control" runat="server" placeholder="DNI"></asp:TextBox>
+                                        <label for="txtDni">DNI</label>
+                                        <br/>
                                     </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtNomV" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>
+                                        <label for="txtNomV">Nombre</label>
+                                        <br/>
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtTelV" class="form-control" runat="server" placeholder="Teléfono"></asp:TextBox>
+                                        <label for="txtTelV">Teléfono</label>
+                                        <br/>
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtEmailV" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                                        <label for="txtTelV">Email</label>
+                                        <br/>
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:DropDownList ID="dlHor" runat="server">
+                                            <asp:ListItem>Mañanas</asp:ListItem>
+                                            <asp:ListItem>Tardes</asp:ListItem>
+                                        </asp:DropDownList>
+                                        <br/>
+                                        <br />
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtPassV" TextMode="Password" class="form-control" runat="server" placeholder="Contraseña"></asp:TextBox>
+                                        <label for="txtPassV">Contraseña</label>
+                                        <br/>
+                                    </div>
+                                    </div>
+
 
                                     <div runat="server" class="form-floating" id="divResi">
-                                        <asp:Label ID="Label3" runat="server" Text="Nombre: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtNomR" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label4" runat="server" Text="Direccion: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtDireR" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label6" runat="server" Text="Telefono: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtTelR" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label5" runat="server" Text="Email: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtEmailR" class="form-control" runat="server"></asp:TextBox>
-                                        <br />
-                                        <asp:Label ID="Label7" runat="server" Text="Contraseña: "></asp:Label>
-                                        <br />
-                                        <asp:TextBox ID="txtPassR" TextMode="Password" class="form-control" runat="server"></asp:TextBox>
+
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtNomR" class="form-control" runat="server" placeholder="Nombre"></asp:TextBox>
+                                        <label for="txtNomR">Nombre</label>
+                                        <br/>
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtDireR" class="form-control" runat="server" placeholder="Dirección"></asp:TextBox>
+                                        <label for="txtDireR">Dirección</label>
+                                        <br/>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtTelR" class="form-control" runat="server" placeholder="Teléfono"></asp:TextBox>
+                                        <label for="txtTelR">Teléfono</label>
+                                        <br/>
+                                    </div>
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtEmailR" class="form-control" runat="server" placeholder="Email"></asp:TextBox>
+                                        <label for="txtEmailR">Email</label>
+                                        <br/>
+                                    </div>
+
+                                    <div class="form-floating">
+                                        <asp:TextBox ID="txtPassR" class="form-control" runat="server" placeholder="Contraseña"></asp:TextBox>
+                                        <label for="txtPassR">Contraseña</label>
+                                        <br/>
+                                    </div>
+
                                     </div>
 
                                 </ContentTemplate>

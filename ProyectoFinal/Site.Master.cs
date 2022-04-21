@@ -39,8 +39,7 @@ namespace ProyectoFinal
             }
 
             divResi.Visible = false;
-            btnVolu.BackColor = Color.Green;
-            btnResi.BackColor = Color.Gray;
+
         }
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
@@ -102,8 +101,7 @@ namespace ProyectoFinal
         {
             divVolu.Visible = true;
             divResi.Visible = false;
-            btnVolu.BackColor = Color.Green;
-            btnResi.BackColor = Color.Gray;
+
             btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
         }
 
@@ -112,8 +110,7 @@ namespace ProyectoFinal
         {
             divVolu.Visible = false;
             divResi.Visible = true;
-            btnVolu.BackColor = Color.Gray;
-            btnResi.BackColor = Color.Green;
+
             btnCurrentRegister.Text = "REGISTRANDO COMO RESIDENCIA";
            
 
