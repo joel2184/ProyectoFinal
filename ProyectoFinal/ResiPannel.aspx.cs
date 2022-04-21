@@ -13,7 +13,6 @@ namespace ProyectoFinal
     public partial class ResiPannel : Page
     {
         Residencia residenciaIniciada = null;
-        List<Volu_Acti> listBoth;
         Voluntario volu;
         Actividad acti;
         protected void Page_Load(object sender, EventArgs e)
