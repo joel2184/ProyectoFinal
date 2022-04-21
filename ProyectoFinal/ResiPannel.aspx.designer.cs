@@ -69,13 +69,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// Control txtDni.
+        /// Control txtNom.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDni;
+        protected global::System.Web.UI.WebControls.TextBox txtNom;
 
         /// <summary>
         /// Control Label8.
@@ -87,13 +87,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.Label Label8;
 
         /// <summary>
-        /// Control txtNomV.
+        /// Control ddTipo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomV;
+        protected global::System.Web.UI.WebControls.DropDownList ddTipo;
 
         /// <summary>
         /// Control Label11.
@@ -105,13 +105,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.Label Label11;
 
         /// <summary>
-        /// Control txtTelV.
+        /// Control txtHor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelV;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHor;
 
         /// <summary>
         /// Control Label10.
@@ -123,111 +123,57 @@ namespace ProyectoFinal
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
-        /// Control txtEmailV.
+        /// Control txtFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmailV;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFecha;
 
         /// <summary>
-        /// Control Label13.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label13;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control dlHor.
+        /// Control txtDesc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlHor;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDesc;
 
         /// <summary>
-        /// Control Label12.
+        /// Control btnSubmit.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label12;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// Control txtPassV.
+        /// Control divListVol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassV;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divListVol;
 
         /// <summary>
-        /// Control divSeeVol.
+        /// Control listVolu.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSeeVol;
-
-        /// <summary>
-        /// Control Label1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Control txtMail.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMail;
-
-        /// <summary>
-        /// Control Label2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// Control txtPassword.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
-
-        /// <summary>
-        /// Control rememberme.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox rememberme;
-
-        /// <summary>
-        /// Control btnLogIn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogIn;
+        protected global::System.Web.UI.WebControls.ListBox listVolu;
     }
 }

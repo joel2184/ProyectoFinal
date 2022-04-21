@@ -58,7 +58,7 @@ namespace ProyectoFinal
 
                 if (tempv != null)
                     Session["Voluntario"] = tempv.Id_Voluntario;
-                else
+                else if (tempr != null)
                 {
                     Session["Residencia"] = tempr.Id_Residencia;
                     Response.Redirect("ResiPannel.aspx");
@@ -80,6 +80,8 @@ namespace ProyectoFinal
             {
                 Session["Residencia"] = null;
                 Session["Voluntario"] = null;
+                tempr = null;
+                tempv = null;
 
                 Response.Redirect("Default.aspx");
 

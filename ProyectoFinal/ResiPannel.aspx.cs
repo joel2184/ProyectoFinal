@@ -16,7 +16,9 @@ namespace ProyectoFinal
         protected void Page_Load(object sender, EventArgs e)
         {
             divNewAct.Visible = false;
-            divSeeVol.Visible = false;
+            divListVol.Visible = false;
+            
+
             if (Session["Residencia"] != null)
             {
                 DALResidencia dalresi = new DALResidencia();
@@ -40,16 +42,31 @@ namespace ProyectoFinal
         protected void btnActForm_Click(object sender, EventArgs e)
         {
             divNewAct.Visible = true;
-            divSeeVol.Visible = false;
+            divListVol.Visible = false;
             btnActForm.BackColor = Color.Green;
             btnVoluList.BackColor = Color.Gray;
         }
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
             divNewAct.Visible = false;
-            divSeeVol.Visible = true;
+            divListVol.Visible = true;
             btnActForm.BackColor =  Color.Gray;
             btnVoluList.BackColor = Color.Green; 
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Alert("Ha de rellenar todos los campos");
+            if (txtNom.Text != null && ddTipo.SelectedValue.ToString() != null && txtHor.Value != null && txtFecha.Value != null && txtDesc.Value != null)
+            {
+                DALActividad newActivity = new DALActividad();
+                newActivity.InsertActividad(new Actividad(txtNom.Text, ddTipo.SelectedValue.ToString(), TimeSpan.Parse(txtHor.Value), Convert.ToDateTime(txtFecha.Value), txtDesc.Value, (int)Session["Residencia"]));
+               
+            }                
+            else
+                Response.Redirect("Default.aspx");
+
+
         }
         protected void Alert(string message)
         {
