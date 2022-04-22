@@ -19,7 +19,9 @@ namespace ProyectoFinal
         {
             divNewAct.Visible = false;
             divListVol.Visible = false;
-            
+            divListAct.Visible = false;
+
+                       
 
             if (Session["Residencia"] != null)
             {
@@ -39,22 +41,19 @@ namespace ProyectoFinal
 
             btnActForm.BackColor = Color.Gray;
             btnVoluList.BackColor = Color.Gray;
+            btnActiList.BackColor = Color.Gray;
+            btnRemove.BackColor = Color.Red;
         }
         
         protected void btnActForm_Click(object sender, EventArgs e)
         {
-            divNewAct.Visible = true;
-            divListVol.Visible = false;
-            btnActForm.BackColor = Color.Green;
-            btnVoluList.BackColor = Color.Gray;
+            Show("addActi");
         }
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
+            lbVolu.Items.Clear();
             List<int> list = new List<int>();
-            divNewAct.Visible = false;
-            divListVol.Visible = true;
-            btnActForm.BackColor =  Color.Gray;
-            btnVoluList.BackColor = Color.Green;
+            Show("VoluApuntados");
             DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
             DALActividad dalactividad = new DALActividad();
             DALVoluntario dalvoluntario = new DALVoluntario();
@@ -67,18 +66,28 @@ namespace ProyectoFinal
                 lbVolu.Items.Add(volu.toString() + " PARA HACER " + acti.Nombre);
 
             }
-
-            
-
-
-
-
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
+        protected void btnActiList_Click(object sender, EventArgs e)
         {
-            Alert("Ha de rellenar todos los campos");
-            if (txtNom.Text != null && ddTipo.SelectedValue.ToString() != null && txtHor.Value != null && txtFecha.Value != null && txtDesc.Value != null)
+            lbActi.Items.Clear();
+            List<Actividad> list;
+            Show("Actividades");
+            
+            DALActividad dalactividad = new DALActividad();
+            list = dalactividad.SelectAll();
+
+            foreach (Actividad item in list)
+            {
+                if (item.Residencia == (int)Session["Residencia"])
+                {
+                    lbActi.Items.Add(item.toString());
+                }
+            }
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {           
+            if (txtNom.Text.Length != 0 && txtHor.Value.Length != 0 && txtFecha.Value.Length != 0 && txtDesc.Value.Length != 0)
             {
                 DALActividad newActivity = new DALActividad();
                 newActivity.InsertActividad(new Actividad(txtNom.Text, ddTipo.SelectedValue.ToString(), TimeSpan.Parse(txtHor.Value), Convert.ToDateTime(txtFecha.Value), txtDesc.Value, (int)Session["Residencia"]));
@@ -88,6 +97,37 @@ namespace ProyectoFinal
                 Response.Redirect("Default.aspx");
 
 
+        }
+        protected void btnRemoveActi_Click(object sender, EventArgs e)
+        {
+            DALActividad dalacti = new DALActividad();
+            string actividad = lbActi.SelectedItem.ToString();
+            int  activida = Convert.ToInt32(actividad[0].ToString());
+            dalacti.DeleteActividad(activida);
+            btnActiList_Click(sender, e);            
+            
+            
+
+
+        }
+        protected void Show(String what)
+        {
+            switch (what)
+            {
+                case "VoluApuntados":                    
+                    divListVol.Visible = true;
+                    btnVoluList.BackColor = Color.Green;
+                    break;
+                case "Actividades":                    
+                    divListAct.Visible = true;
+                    btnActiList.BackColor = Color.Green;
+                    break;
+                case "addActi":
+                    divNewAct.Visible = true;                    
+                    btnActForm.BackColor = Color.Green;
+                    
+                    break;
+            }
         }
         protected void Alert(string message)
         {

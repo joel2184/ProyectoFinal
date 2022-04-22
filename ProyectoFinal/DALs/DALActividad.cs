@@ -196,5 +196,34 @@ namespace ProyectoFinal.DALs
             }
 
         }
+
+        public Boolean DeleteActividad(int idActividad)
+        {
+            try
+            {
+                cnx.OpenConection();
+
+                String sql = "DELETE FROM Actividades WHERE id_actividad = @id";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+
+                SqlParameter idAct = new SqlParameter("@id", idActividad);                
+                                
+                cmd.Parameters.Add(idAct);                
+
+                cmd.ExecuteNonQuery();
+
+                cnx.CloseConnection();
+                return true;
+
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido eliminar la actividad " + ee);
+                return false;
+
+            }
+        }
     }
 }

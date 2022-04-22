@@ -21,6 +21,13 @@ namespace ProyectoFinal
             btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
 
 
+            if(!Page.IsPostBack && Request.Cookies["email"] != null && Request.Cookies["password"] != null)
+            {
+                txtMail.Text = this.Request.Cookies["email"].Value;
+                txtPassword.Text = this.Request.Cookies["password"].Value;
+            }
+
+
             if (Session["Voluntario"] != null || Session["Residencia"] != null)
             {
                 if (Session["Residencia"] != null)
@@ -31,11 +38,6 @@ namespace ProyectoFinal
                 idRegistro.Visible = false;
                 btnLogOut.Visible = true;
                 
-            }
-            if (Request.Cookies["email"] != null && Request.Cookies["password"] != null)
-            {
-                txtMail.Text = this.Request.Cookies["email"].Value;
-                txtPassword.Text = this.Request.Cookies["password"].Value;
             }
 
             divResi.Visible = false;

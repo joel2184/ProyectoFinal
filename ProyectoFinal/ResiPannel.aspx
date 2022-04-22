@@ -9,8 +9,11 @@
 
 
     <br />
+    <br />
     <asp:Button ID="btnActForm" class="btn btn-primary btn-sm" runat="server" Text="CREAR NUEVA ACTIVIDAD" OnClick="btnActForm_Click" />
     <asp:Button ID="btnVoluList" class="btn btn-primary btn-sm" runat="server" Text="LISTA VOLUNTARIOS APUNTADOS" OnClick="btnVoluList_Click" />
+    <asp:Button ID="btnActiList" class="btn btn-primary btn-sm" runat="server" Text="TUS ACTIVIDADES" OnClick="btnActiList_Click" />
+
 
 
     <div>
@@ -52,6 +55,14 @@
                 <div runat="server" class="form-floating" id="divListVol">
                     <br />
                     <asp:ListBox ID="lbVolu" runat="server" class="list-group"></asp:ListBox>
+                </div>
+
+                 <div runat="server" class="form-floating" id="divListAct">
+                    <br />
+                    <asp:ListBox ID="lbActi" runat="server" class="list-group"></asp:ListBox>
+                     <br />
+                    <asp:Button ID="btnRemove" class="btn btn-primary btn-sm" runat="server" Text="ELIMINAR" OnClick="btnRemoveActi_Click" />
+
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
