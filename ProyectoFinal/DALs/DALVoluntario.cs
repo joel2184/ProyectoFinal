@@ -103,6 +103,45 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+
+        public List<Voluntario> SelectAll()
+        {
+            //list.Clear();
+            try
+            {
+                cnx.OpenConection();
+
+                string sql = @"
+                SELECT * FROM Voluntario";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                List<Voluntario> list = new List<Voluntario>();
+
+
+                while (dr.Read())
+                {
+                    
+                    temp = new Voluntario(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), Convert.ToInt32(dr[6]));
+                    list.Add(temp);
+                }
+
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return list;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar actividades " + ee);
+                return null;
+            }
+        }
+
         public Voluntario SelectbyID(int id)
         {
             //list.Clear();
