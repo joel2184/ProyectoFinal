@@ -101,7 +101,7 @@ namespace ProyectoFinal
         {
             divVolu.Visible = true;
             divResi.Visible = false;
-
+            
             btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
         }
 
@@ -110,6 +110,7 @@ namespace ProyectoFinal
         {
             divVolu.Visible = false;
             divResi.Visible = true;
+            
 
             btnCurrentRegister.Text = "REGISTRANDO COMO RESIDENCIA";
            

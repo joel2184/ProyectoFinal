@@ -108,8 +108,11 @@
                                     <div>
                                         <asp:Label ID="btnCurrentRegister" runat="server" Text="LAvel"></asp:Label>
                                         <br />
-                                        <asp:Button ID="btnVolu" class="btn2" runat="server" Text="Voluntario" OnClick="btnVolu_Click" />
-                                        <asp:Button ID="btnResi" class="btn2" runat="server" Text="Residencia" OnClick="btnResi_Click" />
+                                        <div class="row">
+                                        <asp:Button ID="btnVolu" class="btn2 col" runat="server" Text="Voluntario" OnClick="btnVolu_Click" Style="margin: 2%"/>
+                                        <asp:Button ID="btnResi" class="btn2 col" runat="server" Text="Residencia" OnClick="btnResi_Click" Style="margin: 2%"/>
+                                            </div>
+
 
                                     </div>
 
