@@ -17,6 +17,44 @@ namespace ProyectoFinal.DALs
             cnx = new DBConnect();
         }
 
+        public List<Residencia> SelectAll()
+        {
+            //list.Clear();
+            try
+            {
+                cnx.OpenConection();
+
+                string sql = @"
+                SELECT * FROM Residencia";
+
+                SqlCommand cmd = new SqlCommand(sql, cnx.conexion);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                List<Residencia> list = new List<Residencia>();
+
+
+                while (dr.Read())
+                {
+                    temp = new Residencia(Convert.ToString(dr[0]), Convert.ToString(dr[1]), Convert.ToString(dr[2]), Convert.ToString(dr[3]), Convert.ToString(dr[4]), Convert.ToInt32(dr[5]), Convert.ToDecimal(dr[6]), Convert.ToDecimal(dr[7]));
+
+                    list.Add(temp);
+                }
+
+
+
+                dr.Close();
+                cnx.CloseConnection();
+                return list;
+            }
+            catch (Exception ee)
+            {
+
+                Console.WriteLine("No se ha podido encontrar residencias " + ee);
+                return null;
+            }
+        }
+
         public Residencia FindUser(string email, string password)
         {
             try
