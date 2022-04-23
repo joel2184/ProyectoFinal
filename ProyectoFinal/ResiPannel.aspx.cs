@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace ProyectoFinal
@@ -15,8 +16,15 @@ namespace ProyectoFinal
         Residencia residenciaIniciada = null;
         Voluntario volu;
         Actividad acti;
+
+        private List<int> list = new List<int>();
+        private List<ActividadVoluntario> listaDatasource = new List<ActividadVoluntario>(); 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
+            list = dalboth.SelectAll();
+
+
             divNewAct.Visible = false;
             divListVol.Visible = false;
             divListAct.Visible = false;
@@ -44,14 +52,17 @@ namespace ProyectoFinal
             btnActiList.BackColor = Color.Gray;
             btnRemove.BackColor = Color.Red;
         }
-        
+        // Tener en cuenta que es un método 'override'
+
+
+
         protected void btnActForm_Click(object sender, EventArgs e)
         {
             Show("addActi");
         }
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
-            lbVolu.Items.Clear();
+            //lbVolu.Items.Clear();
             List<int> list = new List<int>();
             Show("VoluApuntados");
             DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
@@ -63,7 +74,13 @@ namespace ProyectoFinal
             {
                 volu = dalvoluntario.SelectbyID(list[i]);
                 acti = dalactividad.SelectbyID(list[i + 1]);
-                lbVolu.Items.Add(volu.toString() + " PARA HACER " + acti.Nombre);
+                if (acti.Residencia == (int)Session["Residencia"])
+                {
+                    ActividadVoluntario av = new ActividadVoluntario(volu, acti);
+                    listaDatasource.Add(av);
+                }
+
+                
 
             }
         }
@@ -117,6 +134,7 @@ namespace ProyectoFinal
                 case "VoluApuntados":                    
                     divListVol.Visible = true;
                     btnVoluList.BackColor = Color.Green;
+          
                     break;
                 case "Actividades":                    
                     divListAct.Visible = true;
@@ -129,9 +147,30 @@ namespace ProyectoFinal
                     break;
             }
         }
+        protected void TableListView_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                ActividadVoluntario av = (ActividadVoluntario)e.Item.DataItem;
+
+                ((HtmlTableCell)e.Item.FindControl("nombreActividad")).InnerText = av.Act.Nombre;
+                ((HtmlTableCell)e.Item.FindControl("nombreVoluntario")).InnerText = av.Vol.Nombre;
+            }
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            TableListView.DataSource = listaDatasource;
+            TableListView.DataBind();
+        }
+
+
         protected void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
         }
+
+
     }
 }

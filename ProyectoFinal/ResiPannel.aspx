@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ResiPannel.aspx.cs" Inherits="ProyectoFinal.ResiPannel" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <link rel="stylesheet" href="css/styles.css">
 
 
     <asp:Label ID="lblTitle" runat="server" Text="Label" CssClass="h1"></asp:Label>
@@ -48,13 +48,38 @@
                     <br />
                     <textarea class="form-control" runat="server" id="txtDesc" rows="3"></textarea>
 
-                    <asp:Button ID="btnSubmit" class="btn btn-primary btn-sm" runat="server" Text="CREAR" OnClick="btnSubmit_Click" />
+                    <asp:Button ID="btnSubmit" class="btn2" runat="server" Text="CREAR" OnClick="btnSubmit_Click" />
 
                 </div>
 
                 <div runat="server" class="form-floating" id="divListVol">
                     <br />
-                    <asp:ListBox ID="lbVolu" runat="server" class="list-group"></asp:ListBox>
+          
+
+                    <asp:ListView runat="server" ID="TableListView" 
+                          ItemPlaceholderID="itemPlaceHolder"
+                        OnItemDataBound="TableListView_ItemDataBound">
+                <LayoutTemplate>
+                    <table id="ListViewTable" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Actividad</th>
+                                <th scope="col">Voluntario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:PlaceHolder runat="server" id="itemPlaceHolder">
+                            </asp:PlaceHolder>
+                        </tbody>
+                    </table>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <tr>                                
+                        <td runat="server" id="nombreActividad"></td>
+                        <td runat="server" id="nombreVoluntario"></td>
+                    </tr>
+                </ItemTemplate>           
+                        </asp:ListView>
                 </div>
 
                  <div runat="server" class="form-floating" id="divListAct">

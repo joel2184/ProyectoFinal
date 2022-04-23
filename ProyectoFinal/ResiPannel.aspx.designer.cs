@@ -177,13 +177,13 @@ namespace ProyectoFinal
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divListVol;
 
         /// <summary>
-        /// Control lbVolu.
+        /// Control TableListView.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbVolu;
+        protected global::System.Web.UI.WebControls.ListView TableListView;
 
         /// <summary>
         /// Control divListAct.

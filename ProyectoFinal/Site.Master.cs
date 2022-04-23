@@ -91,7 +91,7 @@ namespace ProyectoFinal
         }
 
         public void btnResiPannel_Click(object sender, EventArgs e)
-        {
+        {   
             if (Session["Residencia"] != null)
             {             
                 Response.Redirect("ResiPannel.aspx");

@@ -132,11 +132,11 @@
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Images\Cine.jpg" />
+    <Content Include="Images\joel.jpg" />
     <Content Include="Images\slide1.png" />
     <Content Include="Images\Educativa.jpg" />
     <Content Include="Images\gabriele.jpg" />
     <Content Include="Images\github.jpg" />
-    <Content Include="Images\joel.jpg" />
     <Content Include="Images\jose.jpg" />
     <Content Include="Images\linkedin-logo.jpg" />
     <Content Include="Images\manuel.jpg" />
@@ -209,6 +209,7 @@
     <Compile Include="Mapa.aspx.designer.cs">
       <DependentUpon>Mapa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\ActividadVoluntario.cs" />
     <Compile Include="Modelo\DBConnect.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
