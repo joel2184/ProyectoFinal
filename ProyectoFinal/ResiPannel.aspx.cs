@@ -117,15 +117,20 @@ namespace ProyectoFinal
         }
         protected void btnRemoveActi_Click(object sender, EventArgs e)
         {
+            // sabiendo que los primero caracteres del item seleccionado en el listbox son el id
+            // hago un bucle para que pille el id entero
             DALActividad dalacti = new DALActividad();
             string actividad = lbActi.SelectedItem.ToString();
-            int  activida = Convert.ToInt32(actividad[0].ToString());
-            dalacti.DeleteActividad(activida);
-            btnActiList_Click(sender, e);            
-            
-            
-
-
+            string charId = "";
+            int i = 0;
+            while (char.IsNumber(actividad,i))
+            {
+                charId = charId + actividad[i];
+                i++;
+            }
+             
+            dalacti.DeleteActividad(Convert.ToInt32(charId));
+            btnActiList_Click(sender, e);           
         }
         protected void Show(String what)
         {
