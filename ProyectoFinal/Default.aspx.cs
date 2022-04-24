@@ -12,7 +12,7 @@ namespace ProyectoFinal
 {
     public partial class _Default : Page
     {
-
+        
         List<Actividad> listActividades;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,6 +20,14 @@ namespace ProyectoFinal
             {
                 buscarActividades();
 
+            }
+            
+            
+            
+            if (Session["Error"].ToString() == "True")
+            {
+                Alert("ALGO HA IDO MAL || Asegúrate de no dejar campos en blanco");
+                Session["Error"] = false;
             }
         }
         protected void RadioButtonTodas_CheckedChanged(object sender, EventArgs e)
@@ -196,6 +204,7 @@ namespace ProyectoFinal
         protected void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
+            
         }
 
     }

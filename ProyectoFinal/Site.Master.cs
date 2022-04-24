@@ -12,20 +12,23 @@ namespace ProyectoFinal
 {
     public partial class SiteMaster : MasterPage
     {
-        Voluntario tempv = null;
-        Residencia tempr = null;
+        Voluntario tempv;
+        Residencia tempr;
         protected void Page_Load(object sender, EventArgs e)
         {
             btnLogOut.Visible = false;
             btnResiPannel.Visible = false;
+            tempv = null;
+            tempr = null;
             btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
 
 
-            if(!Page.IsPostBack && Request.Cookies["email"] != null && Request.Cookies["password"] != null)
+            if (!Page.IsPostBack && Request.Cookies["email"] != null && Request.Cookies["password"] != null)
             {
                 txtMail.Text = this.Request.Cookies["email"].Value;
                 txtPassword.Text = this.Request.Cookies["password"].Value;
             }
+
 
 
             if (Session["Voluntario"] != null || Session["Residencia"] != null)
@@ -37,7 +40,7 @@ namespace ProyectoFinal
                 idInicio.Visible = false;
                 idRegistro.Visible = false;
                 btnLogOut.Visible = true;
-                
+
             }
 
             divResi.Visible = false;
@@ -58,19 +61,24 @@ namespace ProyectoFinal
                     addCookie(tempv, tempr);
 
                 if (tempv != null)
+                {
                     Session["Voluntario"] = tempv.Id_Voluntario;
+                    Response.Redirect("Default.aspx");
+                }                    
                 else if (tempr != null)
                 {
                     Session["Residencia"] = tempr.Id_Residencia;
                     Response.Redirect("ResiPannel.aspx");
                 }
-                                  
 
             }
             else
             {
                 Console.WriteLine("No encontrado");
-                Response.Redirect("#!");
+                Session["Error"] = true;
+                Response.Redirect("Default.aspx");
+
+
 
             }
 
@@ -91,19 +99,19 @@ namespace ProyectoFinal
         }
 
         public void btnResiPannel_Click(object sender, EventArgs e)
-        {   
+        {
             if (Session["Residencia"] != null)
-            {             
+            {
                 Response.Redirect("ResiPannel.aspx");
             }
-              
+
         }
 
         protected void btnVolu_Click(object sender, EventArgs e)
         {
             divVolu.Visible = true;
             divResi.Visible = false;
-            
+
             btnCurrentRegister.Text = "REGISTRANDO COMO VOLUNTARIO";
         }
 
@@ -112,34 +120,33 @@ namespace ProyectoFinal
         {
             divVolu.Visible = false;
             divResi.Visible = true;
-            
+
 
             btnCurrentRegister.Text = "REGISTRANDO COMO RESIDENCIA";
-           
+
 
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            if (btnResi.Enabled == false)
-            {
-                Residencia r = new Residencia(txtNomR.Text, txtDireR.Text, txtEmailR.Text, txtTelR.Text, txtPassR.Text);
-                DALResidencia dalr = new DALResidencia();
-                tempr = dalr.InsertUser(r);
-                if (tempr != null)
-                {
-                    Response.Redirect("About.aspx");
-                }
-            }
-            else if (btnVolu.Enabled == false)
+            if (txtDni.Text.Length != 0 && txtNomV.Text.Length != 0 && txtTelV.Text.Length != 0 && txtEmailV.Text.Length !=0 && txtPassV.Text.Length!= 0)
             {
                 Voluntario v = new Voluntario(txtDni.Text, txtNomV.Text, txtTelV.Text, txtEmailV.Text, dlHor.SelectedValue.ToString(), txtPassV.Text);
                 DALVoluntario dalv = new DALVoluntario();
                 tempv = dalv.InsertUser(v);
-                if (tempv != null)
-                {
-                    Response.Redirect("About.aspx");
-                }
+                Response.Redirect("About.aspx");
+            }
+            else if (txtNomR.Text.Length != 0 && txtDireR.Text.Length != 0 && txtEmailR.Text.Length != 0 && txtTelR.Text.Length != 0 && txtPassR.Text.Length != 0)
+            {
+                Residencia r = new Residencia(txtNomR.Text, txtDireR.Text, txtEmailR.Text, txtTelR.Text, txtPassR.Text);
+                DALResidencia dalr = new DALResidencia();
+                tempr = dalr.InsertUser(r);
+                Response.Redirect("About.aspx");
+            }            
+            else
+            {
+                Session["Error"] = true;
+                Response.Redirect("Default.aspx");
             }
         }
 
@@ -166,6 +173,12 @@ namespace ProyectoFinal
             }
 
         }
-        
+        protected void vaciarCampos()
+        {
+            txtMail.Text = "";
+            txtPassword.Text = "";
+            txtNomV.Text = "";
+            txtNomR.Text = "";
+        }
     }
 }

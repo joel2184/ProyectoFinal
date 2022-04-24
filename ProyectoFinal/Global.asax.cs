@@ -22,6 +22,7 @@ namespace ProyectoFinal
         }
         private void Session_Start()
         {
+            Session["Error"] = false;
             Session["Residente"] = null;
             Session["Voluntario"] = null;
 
