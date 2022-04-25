@@ -83,10 +83,42 @@
                 </div>
 
                  <div runat="server" class="form-floating" id="divListAct">
+
+                     <asp:ListView runat="server" ID="ListView2" 
+                          ItemPlaceholderID="itemPlaceHolder2"
+                        OnItemDataBound="TableListView2_ItemDataBound">
+                <LayoutTemplate>
+                    <table id="ListViewTable2" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <asp:PlaceHolder runat="server" id="itemPlaceHolder2">
+                            </asp:PlaceHolder>
+                        </tbody>
+                    </table>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <tr>                                
+                        <td runat="server" id="nombreA"></td>
+                        <td runat="server" id="tipoA"></td>
+                        <td runat="server" id="fechaA"></td>
+                        <td runat="server" id="horaA"></td>
+                        <td runat="server" id="eliminarA"><asp:LinkButton ID="btnEliminar" runat="server" OnClick="btnRemoveActi_Click"><i class="bi bi-trash"></i></asp:LinkButton></td>
+                        
+
+                    </tr>
+                </ItemTemplate>           
+                        </asp:ListView>
+
+
                     <br />
-                    <asp:ListBox ID="lbActi" runat="server" CssClass="ListBoxCssClass"></asp:ListBox>
-                     <br />
-                    <asp:Button ID="btnRemove" class="btn btn-primary btn-sm" runat="server" Text="ELIMINAR" OnClick="btnRemoveActi_Click" />
+                
 
                 </div>
             </ContentTemplate>

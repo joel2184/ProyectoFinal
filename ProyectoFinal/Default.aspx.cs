@@ -268,7 +268,7 @@ namespace ProyectoFinal
         protected void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);
-            
+
         }
 
     }

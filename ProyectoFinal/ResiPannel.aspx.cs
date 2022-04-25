@@ -17,8 +17,10 @@ namespace ProyectoFinal
         Voluntario volu;
         Actividad acti;
 
+
         private List<int> list = new List<int>();
-        private List<ActividadVoluntario> listaDatasource = new List<ActividadVoluntario>(); 
+        private List<ActividadVoluntario> listaDatasource = new List<ActividadVoluntario>();
+        private List<Actividad> listaDatasource2 = new List<Actividad>();
         protected void Page_Load(object sender, EventArgs e)
         {
             DALVoluntarioActividad dalboth = new DALVoluntarioActividad();
@@ -28,8 +30,6 @@ namespace ProyectoFinal
             divNewAct.Visible = false;
             divListVol.Visible = false;
             divListAct.Visible = false;
-
-                       
 
             if (Session["Residencia"] != null)
             {
@@ -52,7 +52,7 @@ namespace ProyectoFinal
             btnActForm.BackColor = Color.Gray;
             btnVoluList.BackColor = Color.Gray;
             btnActiList.BackColor = Color.Gray;
-            btnRemove.BackColor = Color.Red;
+            
         }
 
 
@@ -65,6 +65,7 @@ namespace ProyectoFinal
         //Click en ver voluntarios de cada actividad
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
+
             //lbVolu.Items.Clear();
             List<int> list = new List<int>();
             Show("VoluApuntados");
@@ -88,7 +89,8 @@ namespace ProyectoFinal
         //Click en mostar actividades
         protected void btnActiList_Click(object sender, EventArgs e)
         {
-            lbActi.Items.Clear();
+
+            
             List<Actividad> list;
             Show("Actividades");
             
@@ -99,7 +101,8 @@ namespace ProyectoFinal
             {
                 if (item.Residencia == (int)Session["Residencia"])
                 {
-                    lbActi.Items.Add(item.toString());
+                    listaDatasource2.Add(item);
+                    
                 }
             }
         }
@@ -120,18 +123,19 @@ namespace ProyectoFinal
         {
             // sabiendo que los primero caracteres del item seleccionado en el listbox son el id
             // hago un bucle para que pille el id entero
+
+
+            LinkButton b = (LinkButton)sender;
+            Console.WriteLine(b.ID);
+            string eliminar = b.Attributes["key"].ToString();
+            
+            
             DALActividad dalacti = new DALActividad();
-            string actividad = lbActi.SelectedItem.ToString();
-            string charId = "";
-            int i = 0;
-            while (char.IsNumber(actividad,i))
-            {
-                charId = charId + actividad[i];
-                i++;
-            }
+            
              
-            dalacti.DeleteActividad(Convert.ToInt32(charId));
-            btnActiList_Click(sender, e);           
+            dalacti.DeleteActividad(Convert.ToInt32(eliminar));
+            btnActiList_Click(sender, e);    
+            
         }
 
         //Metodo para mostar el panel correspondiente
@@ -165,15 +169,39 @@ namespace ProyectoFinal
 
                 ((HtmlTableCell)e.Item.FindControl("nombreActividad")).InnerText = av.Act.Nombre;
                 ((HtmlTableCell)e.Item.FindControl("nombreVoluntario")).InnerText = av.Vol.Nombre;
+
+            }
+        }
+        protected void TableListView2_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListViewItemType.DataItem)
+            {
+                Actividad a = (Actividad)e.Item.DataItem;
+
+                ((HtmlTableCell)e.Item.FindControl("nombreA")).InnerText = a.Nombre;
+                ((HtmlTableCell)e.Item.FindControl("tipoA")).InnerText = a.Tipo;
+                ((HtmlTableCell)e.Item.FindControl("fechaA")).InnerText = String.Format("{0:d/M/yyyy}", a.Fecha);
+                ((HtmlTableCell)e.Item.FindControl("horaA")).InnerText = a.Horario.ToString();
+                ((LinkButton)e.Item.FindControl("btnEliminar")).Attributes.Add("key", a.Id_actividad.ToString());
+                //((Button)e.Item.FindControl("Button1"))
+                /*
+                 Button b = ((Button)e.Item.FindControl("btnEliminar"));
+                 b.ID = a.Id_actividad.ToString();
+                b.Click+= new EventHandler(btnRemoveActi_Click);
+                */
             }
         }
 
         //Método para cargar datos de ListView
         protected override void OnPreRender(EventArgs e)
         {
+            
             base.OnPreRender(e);
             TableListView.DataSource = listaDatasource;
             TableListView.DataBind();
+
+            ListView2.DataSource = listaDatasource2;
+            ListView2.DataBind();
         }
 
         //Generar alertas

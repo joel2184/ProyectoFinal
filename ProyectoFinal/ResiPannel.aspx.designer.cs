@@ -195,21 +195,12 @@ namespace ProyectoFinal
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divListAct;
 
         /// <summary>
-        /// Control lbActi.
+        /// Control ListView2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbActi;
-
-        /// <summary>
-        /// Control btnRemove.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRemove;
+        protected global::System.Web.UI.WebControls.ListView ListView2;
     }
 }

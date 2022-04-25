@@ -1,12 +1,8 @@
 ﻿using ProyectoFinal.DALs;
 using ProyectoFinal.Modelo;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ProyectoFinal
 {
@@ -23,7 +19,7 @@ namespace ProyectoFinal
                 Response.Redirect("Default.aspx");
 
             }
-            
+
 
             if (!this.IsPostBack)
             {
@@ -52,8 +48,8 @@ namespace ProyectoFinal
                 r = dalR.FindById(a.Residencia);
                 string estrcuctura = "";
                 string img = "Images/" + a.Tipo.ToString() + ".jpg";
-                estrcuctura = "<div class='container'><div class='row g-3'><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + a.Nombre + "</h2><p>" + String.Format("{0:d/M/yyyy}", a.Fecha) + ", " + a.Horario.ToString() + "</p><p>" + a.Descripcion + "</p></div><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + r.Nombre + 
-                    "</h2><p>" + r.Direccion + "</p><p>" + r.Email + "</p><p>" + r.Telefono + "</p></div><div class='col'><img src ='" + img+"' alt = 'Italian Trulli' style = 'height: 100%; width:100%'>" +
+                estrcuctura = "<div class='container'><div class='row g-3'><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + a.Nombre + "</h2><p>" + String.Format("{0:d/M/yyyy}", a.Fecha) + ", " + a.Horario.ToString() + "</p><p>" + a.Descripcion + "</p></div><div class='col-md-6 col-lg-4 col-xl-3'><h2>" + r.Nombre +
+                    "</h2><p>" + r.Direccion + "</p><p>" + r.Email + "</p><p>" + r.Telefono + "</p></div><div class='col'><img src ='" + img + "' alt = 'Italian Trulli' style = 'height: 100%; width:100%'>" +
                     "</div></div></div>";
 
 
@@ -89,7 +85,7 @@ namespace ProyectoFinal
         //Método para apuntarse a la actividad
         public void btnApuntarse_Click(object sender, EventArgs e)
         {
-            
+
             DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
             dalVolAct.InsertActividadVoluntario(idActividad, (int)Session["Voluntario"]);
             Response.Redirect(Request.RawUrl);
@@ -98,11 +94,11 @@ namespace ProyectoFinal
         {
             //Método para cancelar el voluntariado
             DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
-            dalVolAct.DeleteActividadVoluntario(idActividad, (int)Session["Voluntario"]);          
+            dalVolAct.DeleteActividadVoluntario(idActividad, (int)Session["Voluntario"]);
             Response.Redirect(Request.RawUrl);
 
         }
-        
+
 
     }
 }

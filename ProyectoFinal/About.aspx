@@ -19,7 +19,12 @@
       <div class="container">
         <h2>Joel Hurtado</h2>
         <p class="title">Programador</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>Programador de aplicaciones
+con implicación, aprendizaje
+rápido y con capacidad para
+trabajar en grupo.
+Disponibilidad inmediata y
+ganas de seguir formándome.</p>
             <ul class="social-icons" style="text-align:center">
               <li><a class="github" href="https://github.com/joel2184"><i class="fa fa-github"></i></a></li>
               <li><a class="linkedin" href="https://www.linkedin.com/in/joelhurtadocomino/"><i class="fa fa-linkedin"></i></a></li>   
@@ -49,7 +54,7 @@
       <div class="container">
         <h2>Jose Luis López</h2>
         <p class="title">Programador</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>Persona responsable con muchas ganas de aprender mucho más sobre este sector y coger experiencia en el mismo.</p>
             <ul class="social-icons" style="text-align:center">
               <li><a class="github" href="https://github.com/kesp34"><i class="fa fa-github"></i></a></li>
               <li><a class="linkedin" href="https://www.linkedin.com/in/joseluislopezlorenzo"><i class="fa fa-linkedin"></i></a></li>   
@@ -64,8 +69,10 @@
       <div class="container">
         <h2>Gabriele Nevini</h2>
         <p class="title">Programador</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.Some text that describes me lorem ipsum ipsum lorem.</p>
-            <ul class="social-icons" style="text-align:center">
+        <p>Mi objetivo es formar parte de una empresa en la que pueda poner en práctica todos mis conocimientos, que me brinde la oportunidad de lograr objetivos
+personales, y que me ofrezca la oportunidad de crecer en el área
+laboral, personal e intelectual.</p>
+            <ul class="social-icons" style="text-align:center;vertical-align: text-bottom">
               <li><a class="github" href="https://github.com/Gabrinev"><i class="fa fa-github"></i></a></li>
               <li><a class="linkedin" href="https://www.linkedin.com/in/gabriele-nevini/"><i class="fa fa-linkedin"></i></a></li>   
             </ul>
