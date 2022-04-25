@@ -17,6 +17,7 @@ namespace ProyectoFinal.DALs
             cnx = new DBConnect();
         }
 
+        //Método para buscar usuario voluntario
         public Voluntario FindUser(string mail, string password)
         {
 
@@ -56,6 +57,7 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+        //Insertar usuario voluntario
         public Voluntario InsertUser(Voluntario r)
         {
             try
@@ -104,6 +106,7 @@ namespace ProyectoFinal.DALs
             }
         }
 
+        //Buscarr todos los voluntarios
         public List<Voluntario> SelectAll()
         {
             //list.Clear();
@@ -141,7 +144,7 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
-
+        //Buscar voluntario por id_voluntario
         public Voluntario SelectbyID(int id)
         {
             //list.Clear();

@@ -17,6 +17,7 @@ namespace ProyectoFinal.DALs
             cnx = new DBConnect();
         }
 
+        //Método para buscar todas las residencias
         public List<Residencia> SelectAll()
         {
             //list.Clear();
@@ -55,6 +56,7 @@ namespace ProyectoFinal.DALs
             }
         }
 
+        //Método para encontar usuario residencia
         public Residencia FindUser(string email, string password)
         {
             try
@@ -93,6 +95,7 @@ namespace ProyectoFinal.DALs
             }
         }
 
+        //Método para buscar residencia por id_residencia
         public Residencia FindById(int id)
         {
             try
@@ -126,6 +129,8 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+
+        //Insertar usuario residencia
         public Residencia InsertUser(Residencia r)
         {
             try

@@ -18,18 +18,20 @@ namespace ProyectoFinal
         {
             if (!this.IsPostBack)
             {
+                //Búsqueda de todas las actividades
                 buscarActividades();
-
             }
             
             
-            
+            //En caso de algún tipo de error
             if (Session["Error"].ToString() == "True")
             {
                 Alert("ALGO HA IDO MAL || Asegúrate de no dejar campos en blanco");
                 Session["Error"] = false;
             }
         }
+
+        //Métodos que se ejecutan cuando se cambia la opción de filtro
         protected void RadioButtonTodas_CheckedChanged(object sender, EventArgs e)
         {
             OpcionFiltro();
@@ -55,6 +57,7 @@ namespace ProyectoFinal
             OpcionFiltro();
         }
 
+        //Filtar por tipo de actividad y cambiar estilos de algunos controles
         protected void OpcionFiltro()
         {
             if (TODAS.Checked)
@@ -134,6 +137,7 @@ namespace ProyectoFinal
             }
         }
 
+        //Método que muestra todas las actividades
         public void buscarActividades()
         {
             DALActividad DALActividad = new DALActividad();
@@ -141,6 +145,7 @@ namespace ProyectoFinal
             StringBuilder sb = new StringBuilder();
             string estrcuctura = "";
 
+            //En caso de no haber iniciado sesion no tienes acceso a las activiadades
             if (Session["Voluntario"] == null)
             {
 
@@ -151,7 +156,7 @@ namespace ProyectoFinal
                     r = dalR.FindById(a.Residencia);
                     string img = "Images/" + a.Tipo.ToString() + ".jpg";
                     estrcuctura = "<div class='news-card'>" +
-                                        "<a data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
+                                        "<a data-bs-toggle='modal' data-bs-target='#signUpModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
                                         "<img src='" + img + "' alt='' class='news-card__image'>" +
                                         "<div class='news-card__text-wrapper'>" +
                                           "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
@@ -168,6 +173,7 @@ namespace ProyectoFinal
 
             }
             else {
+
                 foreach (Actividad a in listActividades)
                 {
                     Residencia r = new Residencia();
@@ -193,6 +199,8 @@ namespace ProyectoFinal
             }
             divCards.Text = sb.ToString();
         }
+
+        //Método que muestra actividades filtradas por el tipo
         public void buscarActividades(string tipoActividad)
         {
             DALs.DALActividad DALActividad = new DALs.DALActividad();
@@ -200,6 +208,7 @@ namespace ProyectoFinal
             StringBuilder sb = new StringBuilder();
             string estrcuctura = "";
 
+            //En caso de no haber iniciado sesion no tienes acceso a las activiadades
             if (Session["Voluntario"] == null)
             {
 
@@ -210,7 +219,7 @@ namespace ProyectoFinal
                     r = dalR.FindById(a.Residencia);
                     string img = "Images/" + a.Tipo.ToString() + ".jpg";
                     estrcuctura = "<div class='news-card'>" +
-                                        "<a data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
+                                        "<a data-bs-toggle='modal' data-bs-target='#signUpModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
                                         "<img src='" + img + "' alt='' class='news-card__image'>" +
                                         "<div class='news-card__text-wrapper'>" +
                                           "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
@@ -254,6 +263,8 @@ namespace ProyectoFinal
             divCards.Text = sb.ToString();
 
         }
+
+        //Método para generar alerta
         protected void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);

@@ -16,6 +16,7 @@ namespace ProyectoFinal
         Residencia tempr;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Manejo de estilos y uso de cookies
             btnLogOut.Visible = false;
             btnResiPannel.Visible = false;
             tempv = null;
@@ -48,6 +49,7 @@ namespace ProyectoFinal
         }
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
+            //Buscar usuario y validacion login
             DALVoluntario dalV = new DALVoluntario();
             DALResidencia dalR = new DALResidencia();
 
@@ -77,14 +79,12 @@ namespace ProyectoFinal
                 Console.WriteLine("No encontrado");
                 Session["Error"] = true;
                 Response.Redirect("Default.aspx");
-
-
-
             }
 
         }
         public void btnLogOut_Click(object sender, EventArgs e)
         {
+            //Método para cerrar sesion
             if (Session["Residencia"] != null || Session["Voluntario"] != null)
             {
                 Session["Residencia"] = null;
@@ -100,6 +100,7 @@ namespace ProyectoFinal
 
         public void btnResiPannel_Click(object sender, EventArgs e)
         {
+            //Click en panel de control
             if (Session["Residencia"] != null)
             {
                 Response.Redirect("ResiPannel.aspx");
@@ -109,6 +110,7 @@ namespace ProyectoFinal
 
         protected void btnVolu_Click(object sender, EventArgs e)
         {
+            //Cambio de texto cuando estas en un regsitro
             divVolu.Visible = true;
             divResi.Visible = false;
 
@@ -118,6 +120,7 @@ namespace ProyectoFinal
 
         protected void btnResi_Click(object sender, EventArgs e)
         {
+            //Cambio de texto cuando estas en un regsitro
             divVolu.Visible = false;
             divResi.Visible = true;
 
@@ -129,6 +132,7 @@ namespace ProyectoFinal
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
+            //Validaciones
             if (txtDni.Text.Length != 0 && txtNomV.Text.Length != 0 && txtTelV.Text.Length != 0 && txtEmailV.Text.Length !=0 && txtPassV.Text.Length!= 0)
             {
                 Voluntario v = new Voluntario(txtDni.Text, txtNomV.Text, txtTelV.Text, txtEmailV.Text, dlHor.SelectedValue.ToString(), txtPassV.Text);
@@ -152,6 +156,7 @@ namespace ProyectoFinal
 
         protected void addCookie(Voluntario v, Residencia r)
         {
+            //Gestion de cookies
             if (v != null)
             {
                 HttpCookie cookie1 = new HttpCookie("email", v.Email);

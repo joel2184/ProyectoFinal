@@ -11,12 +11,13 @@ namespace ProyectoFinal.DALs
     {
         Actividad temp;
         DBConnect cnx;
-        //List<Actividad> list;
 
         public DALActividad()
         {
             cnx = new DBConnect();
         }
+
+        //Método que busca todas las actividades
         public List<Actividad> SelectAll ()
         {
             //list.Clear();
@@ -60,8 +61,9 @@ namespace ProyectoFinal.DALs
                 Console.WriteLine("No se ha podido encontrar actividades " + ee);
                 return null;
             }
-        }        
+        }
 
+        //Método que busca actividades filtradas por tipoactividad
         public List<Actividad> SelectTipo(string tipoActividad)
         {
             //list.Clear();
@@ -111,6 +113,7 @@ namespace ProyectoFinal.DALs
             }
         }
 
+        //Seleccionar actividad buscando por id_Actividad
         public Actividad SelectbyID(int id)
         {
             //list.Clear();
@@ -148,6 +151,7 @@ namespace ProyectoFinal.DALs
                 return null;
             }
         }
+        //Método para insertar una actividad
         public Actividad InsertActividad(Actividad r)
         {
             
@@ -197,6 +201,7 @@ namespace ProyectoFinal.DALs
 
         }
 
+        //Método para eliminar una actividad en cocncreto
         public Boolean DeleteActividad(int idActividad)
         {
             try

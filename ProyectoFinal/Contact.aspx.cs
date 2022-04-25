@@ -19,7 +19,7 @@ namespace ProyectoFinal
             btnCancelar.Visible = false;
             if (Session["Voluntario"] == null)
             {
-                //Alert("dcede");
+                //Si no has hecho logIn con un voluntario te redirige
                 Response.Redirect("Default.aspx");
 
             }
@@ -27,7 +27,7 @@ namespace ProyectoFinal
 
             if (!this.IsPostBack)
             {
-                //cargar actividad seleccionada
+                //Cargar actividad seleccionada
                 int id = Convert.ToInt32(Request.QueryString["id"]);
 
 
@@ -38,6 +38,7 @@ namespace ProyectoFinal
             }
         }
 
+        //Método para mostarar la actividad seleccionada
         public void mostrarActividad(Actividad a)
         {
             DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
@@ -84,6 +85,8 @@ namespace ProyectoFinal
             }
 
         }
+
+        //Método para apuntarse a la actividad
         public void btnApuntarse_Click(object sender, EventArgs e)
         {
             
@@ -93,12 +96,11 @@ namespace ProyectoFinal
         }
         public void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            //Método para cancelar el voluntariado
             DALVoluntarioActividad dalVolAct = new DALVoluntarioActividad();
-            dalVolAct.DeleteActividadVoluntario(idActividad, (int)Session["Voluntario"]);
-            
+            dalVolAct.DeleteActividadVoluntario(idActividad, (int)Session["Voluntario"]);          
             Response.Redirect(Request.RawUrl);
-            //Apuntado.Text = "Has cancelado el voluntariado de forma exitosa";
+
         }
         
 

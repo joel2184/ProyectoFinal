@@ -1,5 +1,7 @@
-﻿.ListBoxCssClass {
-margin: 2%;
+﻿/*asp:Listbox*/
+
+.ListBoxCssClass {
+    margin: 2%;
     font-size: 12pt;
     font-family: Verdana;
     padding: 8px;
@@ -9,6 +11,9 @@ margin: 2%;
     margin: 2%;
     font-family: Verdana;
 }
+
+/*Estilos para la página about*/
+
 h2 {
     margin-top: 8px;
     font-family: 'Helvetica', 'Arial', sans-serif;
@@ -55,6 +60,9 @@ h2 {
         display: block;
     }
 }
+
+/*Estilo para diferentes botones*/
+
 .btn {
     margin-left: 20px;
     padding: 10px 50px;

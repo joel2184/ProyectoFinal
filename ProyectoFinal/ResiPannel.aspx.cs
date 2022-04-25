@@ -33,6 +33,7 @@ namespace ProyectoFinal
 
             if (Session["Residencia"] != null)
             {
+                //Buscamos la residencia que es y mostramos info
                 DALResidencia dalresi = new DALResidencia();
                 residenciaIniciada = dalresi.FindById((int)Session["Residencia"]);
                 if (residenciaIniciada != null)
@@ -44,6 +45,7 @@ namespace ProyectoFinal
             }
             else
             {
+                //En caso de no haber iniciado sesion com residecia te redirige
                 Response.Redirect("Default.aspx");
             }
 
@@ -52,14 +54,15 @@ namespace ProyectoFinal
             btnActiList.BackColor = Color.Gray;
             btnRemove.BackColor = Color.Red;
         }
-        // Tener en cuenta que es un método 'override'
 
 
-
+        //Click en añadir actividad
         protected void btnActForm_Click(object sender, EventArgs e)
         {
             Show("addActi");
         }
+
+        //Click en ver voluntarios de cada actividad
         protected void btnVoluList_Click(object sender, EventArgs e)
         {
             //lbVolu.Items.Clear();
@@ -79,12 +82,10 @@ namespace ProyectoFinal
                     ActividadVoluntario av = new ActividadVoluntario(volu, acti);
                     listaDatasource.Add(av);
                 }
-
-                
-
             }
         }
 
+        //Click en mostar actividades
         protected void btnActiList_Click(object sender, EventArgs e)
         {
             lbActi.Items.Clear();
@@ -102,6 +103,8 @@ namespace ProyectoFinal
                 }
             }
         }
+
+        //Click en submit (añadir actividad)
         protected void btnSubmit_Click(object sender, EventArgs e)
         {           
             if (txtNom.Text.Length != 0 && txtHor.Value.Length != 0 && txtFecha.Value.Length != 0 && txtDesc.Value.Length != 0)
@@ -112,8 +115,6 @@ namespace ProyectoFinal
             }                
             else
                 Response.Redirect("Default.aspx");
-
-
         }
         protected void btnRemoveActi_Click(object sender, EventArgs e)
         {
@@ -132,6 +133,8 @@ namespace ProyectoFinal
             dalacti.DeleteActividad(Convert.ToInt32(charId));
             btnActiList_Click(sender, e);           
         }
+
+        //Metodo para mostar el panel correspondiente
         protected void Show(String what)
         {
             switch (what)
@@ -152,6 +155,8 @@ namespace ProyectoFinal
                     break;
             }
         }
+
+        //Método para cargar datos de ListView
         protected void TableListView_ItemDataBound(object sender, ListViewItemEventArgs e)
         {
             if (e.Item.ItemType == ListViewItemType.DataItem)
@@ -163,6 +168,7 @@ namespace ProyectoFinal
             }
         }
 
+        //Método para cargar datos de ListView
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
@@ -170,7 +176,7 @@ namespace ProyectoFinal
             TableListView.DataBind();
         }
 
-
+        //Generar alertas
         protected void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "errorAlert", "alert('" + message + "');", true);

@@ -20,6 +20,7 @@ namespace ProyectoFinal.DALs
             cnx = new DBConnect();
         }
 
+        //Buscar actividad buscando por idActividad & idVoluntario
         public bool SelectbyIDs(int idActividad, int idVoluntario)
         {
             //list.Clear();
@@ -57,6 +58,8 @@ namespace ProyectoFinal.DALs
                 return false;
             }
         }
+
+        //Insertar actividadVoluntario a la BD
         public void InsertActividadVoluntario(int idActividad, int idVoluntario)
         {
             try
@@ -86,6 +89,7 @@ namespace ProyectoFinal.DALs
                 
             }
         }
+        //Eliminar actividadVoluntario de la BD
         public void DeleteActividadVoluntario(int idActividad, int idVoluntario)
         {
             try
@@ -115,6 +119,8 @@ namespace ProyectoFinal.DALs
 
             }
         }
+
+        //Buscar todas las actividadesVoluntario
         public List<int> SelectAll()
         {
             //list.Clear();
