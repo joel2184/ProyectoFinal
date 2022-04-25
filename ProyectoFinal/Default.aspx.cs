@@ -136,37 +136,62 @@ namespace ProyectoFinal
 
         public void buscarActividades()
         {
-
-            DALs.DALActividad DALActividad = new DALs.DALActividad();
+            DALActividad DALActividad = new DALActividad();
             listActividades = DALActividad.SelectAll();
             StringBuilder sb = new StringBuilder();
             string estrcuctura = "";
 
-
-            foreach (Actividad a in listActividades)
+            if (Session["Voluntario"] == null)
             {
-                Residencia r = new Residencia();
-                DALResidencia dalR = new DALResidencia();
-                r = dalR.FindById(a.Residencia);
-                string img = "Images/" + a.Tipo.ToString() + ".jpg";
-                estrcuctura = "<div class='news-card'>" +
-                                    "<a href='Contact.aspx?id=" +a.Id_actividad +"' class='news-card__card-link'></a>" +
-                                    "<img src='"+ img + "' alt='' class='news-card__image'>" +
-                                    "<div class='news-card__text-wrapper'>" +
-                                      "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
-                                      "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
-                                      "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
-                                      "<div class='news-card__details-wrapper'>" +
-                                      "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
-                                        "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
-                                      "</div>" +
-                                    "</div>" +
-                                  "</div>";
-                sb.Append(estrcuctura);
+
+                foreach (Actividad a in listActividades)
+                {
+                    Residencia r = new Residencia();
+                    DALResidencia dalR = new DALResidencia();
+                    r = dalR.FindById(a.Residencia);
+                    string img = "Images/" + a.Tipo.ToString() + ".jpg";
+                    estrcuctura = "<div class='news-card'>" +
+                                        "<a data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
+                                        "<img src='" + img + "' alt='' class='news-card__image'>" +
+                                        "<div class='news-card__text-wrapper'>" +
+                                          "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
+                                          "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                          "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
+                                          "<div class='news-card__details-wrapper'>" +
+                                          "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
+                                            "<a style='text-decoration:none' href = '#'   data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</div>";
+                    sb.Append(estrcuctura);
+                }
+
             }
+            else {
+                foreach (Actividad a in listActividades)
+                {
+                    Residencia r = new Residencia();
+                    DALResidencia dalR = new DALResidencia();
+                    r = dalR.FindById(a.Residencia);
+                    string img = "Images/" + a.Tipo.ToString() + ".jpg";
+                    estrcuctura = "<div class='news-card'>" +
+                                        "<a href='Contact.aspx?id=" + a.Id_actividad + "' class='news-card__card-link'></a>" +
+                                        "<img src='" + img + "' alt='' class='news-card__image'>" +
+                                        "<div class='news-card__text-wrapper'>" +
+                                          "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
+                                          "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                          "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
+                                          "<div class='news-card__details-wrapper'>" +
+                                          "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
+                                            "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</div>";
+                    sb.Append(estrcuctura);
+                }
 
+            }
             divCards.Text = sb.ToString();
-
         }
         public void buscarActividades(string tipoActividad)
         {
@@ -175,29 +200,57 @@ namespace ProyectoFinal
             StringBuilder sb = new StringBuilder();
             string estrcuctura = "";
 
-
-            foreach (Actividad a in listActividades)
+            if (Session["Voluntario"] == null)
             {
-                Residencia r = new Residencia();
-                DALResidencia dalR = new DALs.DALResidencia();
-                r = dalR.FindById(a.Residencia);
-                string img = "Images/" + a.Tipo.ToString() + ".jpg";
-                estrcuctura = "<div class='news-card'>" +
-                                    "<a href='Contact.aspx?id='" + a.Id_actividad + " class='news-card__card-link'></a>" +
-                                    "<img src='" + img + "' alt='' class='news-card__image'>" +
-                                    "<div class='news-card__text-wrapper'>" +
-                                      "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
-                                      "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
-                                      "<div class='news-card__post-date'>" + r.Direccion +"</div>" +
-                                      "<div class='news-card__details-wrapper'>" +
-                                      "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
-                                        "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
-                                      "</div>" +
-                                    "</div>" +
-                                  "</div>";
-                sb.Append(estrcuctura);
-            }
 
+                foreach (Actividad a in listActividades)
+                {
+                    Residencia r = new Residencia();
+                    DALResidencia dalR = new DALResidencia();
+                    r = dalR.FindById(a.Residencia);
+                    string img = "Images/" + a.Tipo.ToString() + ".jpg";
+                    estrcuctura = "<div class='news-card'>" +
+                                        "<a data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='news-card__card-link'></a>" +
+                                        "<img src='" + img + "' alt='' class='news-card__image'>" +
+                                        "<div class='news-card__text-wrapper'>" +
+                                          "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
+                                          "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                          "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
+                                          "<div class='news-card__details-wrapper'>" +
+                                          "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
+                                            "<a style='text-decoration:none' href = '#'   data-bs-toggle='modal' data-bs-target='#loginModal' data-bs-whatever='@mdo' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</div>";
+                    sb.Append(estrcuctura);
+                }
+
+            }
+            else
+            {
+                foreach (Actividad a in listActividades)
+                {
+                    Residencia r = new Residencia();
+                    DALResidencia dalR = new DALResidencia();
+                    r = dalR.FindById(a.Residencia);
+                    string img = "Images/" + a.Tipo.ToString() + ".jpg";
+                    estrcuctura = "<div class='news-card'>" +
+                                        "<a href='Contact.aspx?id=" + a.Id_actividad + "' class='news-card__card-link'></a>" +
+                                        "<img src='" + img + "' alt='' class='news-card__image'>" +
+                                        "<div class='news-card__text-wrapper'>" +
+                                          "<h2 class='news-card__title'>" + a.Nombre + "</h2>" +
+                                          "<div class='news-card__post-date'>" + String.Format("{0:d/M/yyyy}", a.Fecha) + "," + a.Horario.ToString() + "</div>" +
+                                          "<div class='news-card__post-date'>" + r.Direccion + "</div>" +
+                                          "<div class='news-card__details-wrapper'>" +
+                                          "<p class='news-card__excerpt'>" + a.Descripcion + "</p>" +
+                                            "<a style='text-decoration:none' href = '#' class='btn2'>Apúnate<i class='fas fa-long-arrow-alt-right'></i></a>" +
+                                          "</div>" +
+                                        "</div>" +
+                                      "</div>";
+                    sb.Append(estrcuctura);
+                }
+
+            }
             divCards.Text = sb.ToString();
 
         }
