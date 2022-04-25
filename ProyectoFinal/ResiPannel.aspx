@@ -83,7 +83,7 @@
                 </div>
 
                  <div runat="server" class="form-floating" id="divListAct">
-
+                      <br />
                      <asp:ListView runat="server" ID="ListView2" 
                           ItemPlaceholderID="itemPlaceHolder2"
                         OnItemDataBound="TableListView2_ItemDataBound">
