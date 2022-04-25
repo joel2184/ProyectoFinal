@@ -1,4 +1,15 @@
-﻿h2 {
+﻿.ListBoxCssClass {
+margin: 2%;
+    font-size: 12pt;
+    font-family: Verdana;
+    padding: 8px;
+}
+
+.h1 {
+    margin: 2%;
+    font-family: Verdana;
+}
+h2 {
     margin-top: 8px;
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
@@ -56,9 +67,10 @@
 }
 
     .btn:hover {
-        background: #4c6287;
         color: #fff;
+        opacity: 0.8;
     }
+
 .btn2 {
     margin-top: 20px;
     padding: 10px 50px;
@@ -71,7 +83,22 @@
 }
 
     .btn2:hover {
-        opacity: 0.9;
+        opacity: 0.8;
+    }
+
+.btnSec {
+    margin-left: 20px;
+    padding: 10px 50px;
+    font-size: 16px;
+    background: #4c6287;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+    .btnSec:hover {
+        opacity: 0.8;
     }
 
 

@@ -3,16 +3,16 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link rel="stylesheet" href="css/styles.css">
 
-
+        <br />
     <asp:Label ID="lblTitle" runat="server" Text="Label" CssClass="h1"></asp:Label>
 
 
 
     <br />
     <br />
-    <asp:Button ID="btnActForm" class="btn btn-primary btn-sm" runat="server" Text="CREAR NUEVA ACTIVIDAD" OnClick="btnActForm_Click" />
-    <asp:Button ID="btnVoluList" class="btn btn-primary btn-sm" runat="server" Text="LISTA VOLUNTARIOS APUNTADOS" OnClick="btnVoluList_Click" />
-    <asp:Button ID="btnActiList" class="btn btn-primary btn-sm" runat="server" Text="TUS ACTIVIDADES" OnClick="btnActiList_Click" />
+    <asp:Button ID="btnActForm" class="btn" runat="server" Text="CREAR NUEVA ACTIVIDAD" OnClick="btnActForm_Click" Style="margin:5px"/>
+    <asp:Button ID="btnVoluList" class="btn" runat="server" Text="LISTA VOLUNTARIOS APUNTADOS" OnClick="btnVoluList_Click" Style="margin:5px"/>
+    <asp:Button ID="btnActiList" class="btn" runat="server" Text="TUS ACTIVIDADES" OnClick="btnActiList_Click" Style="margin:5px"/>
 
 
 
@@ -20,7 +20,7 @@
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
 
-                <div runat="server" class="form-group" id="divNewAct">
+                <div runat="server" class="form-group" id="divNewAct" style="margin:2%">
                     <br />
                     <asp:Label ID="Label9" runat="server" Text="Título: "></asp:Label>
                     <br />
@@ -84,7 +84,7 @@
 
                  <div runat="server" class="form-floating" id="divListAct">
                     <br />
-                    <asp:ListBox ID="lbActi" runat="server" class="list-group"></asp:ListBox>
+                    <asp:ListBox ID="lbActi" runat="server" CssClass="ListBoxCssClass"></asp:ListBox>
                      <br />
                     <asp:Button ID="btnRemove" class="btn btn-primary btn-sm" runat="server" Text="ELIMINAR" OnClick="btnRemoveActi_Click" />
 

@@ -82,7 +82,7 @@ namespace ProyectoFinal.Modelo
 
         public String toString()
         {
-            return id_actividad + ", " + nombre;
+            return  nombre + " el dia " + String.Format("{0:d/M/yyyy}", fecha) + " a las " + horario;
         }
     }
 }

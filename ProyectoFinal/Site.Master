@@ -40,18 +40,20 @@
                     </ul>
 
                     <ul class="navbar-nav me-auto"></ul>
-                    <button type="button" runat="server" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" id="idInicio">
+                    <button type="button" runat="server" class="btnSec" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo" id="idInicio" Style="margin:5px">
                         INICIA SESIÓN                      
                     </button>
-                    <button type="button" runat="server" class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo" id="idRegistro">
+                    <button type="button" runat="server" class="btn" data-bs-toggle="modal" data-bs-target="#signUpModal" data-bs-whatever="@mdo" id="idRegistro" Style="margin:5px">
                         REGISTRARSE                    
                     </button>
-                   <asp:Button ID="btnResiPannel" runat="server" CssClass="btn btn-secondary" Text="PANEL DE CONTROL" OnClick="btnResiPannel_Click" />
-                   <asp:Button ID="btnLogOut" runat="server" CssClass="btn btn-secondary" Text="CERRAR SESIÓN" OnClick="btnLogOut_Click" />
+                   <asp:Button ID="btnResiPannel" runat="server" CssClass="btnSec" Text="PANEL DE CONTROL" OnClick="btnResiPannel_Click" />
+                   <asp:Button ID="btnLogOut" runat="server" CssClass="btn" Text="CERRAR SESIÓN" OnClick="btnLogOut_Click" />
 
                 </div>
             </div>
         </nav>
+
+
 
         <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -82,8 +84,8 @@
                      
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <asp:Button ID="btnLogIn" runat="server" CssClass="btn btn-secondary" Text="INICIAR SESIÓN" OnClick="btnLogIn_Click" />
+                        <button type="button" class="btnSec" data-bs-dismiss="modal">CERRAR</button>
+                        <asp:Button ID="btnLogIn" runat="server" CssClass="btn" Text="INICIAR SESIÓN" OnClick="btnLogIn_Click" />
                     </div>
                 </div>
             </div>
@@ -95,7 +97,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="signUpTitle">Registrarse</h5>
+                        <h5 class="modal-title" id="signUpTitle">REGISTRARSE</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -195,8 +197,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn " data-bs-dismiss="modal">Cerrar</button>
-                        <asp:Button ID="btnSignUp" runat="server" CssClass="btn btn-secondary" Text="REGISTRAR" OnClick="btnSignUp_Click" />
+                        <button type="button" class="btnSec" data-bs-dismiss="modal">CERRAR</button>
+                        <asp:Button ID="btnSignUp" runat="server" CssClass="btn" Text="REGISTRAR" OnClick="btnSignUp_Click" />
 
                     </div>
                 </div>

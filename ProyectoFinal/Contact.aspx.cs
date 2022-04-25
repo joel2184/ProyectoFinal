@@ -36,12 +36,6 @@ namespace ProyectoFinal
                 idActividad = id;
                 mostrarActividad(actividadActual);
             }
-
-
-
-            
-
-
         }
 
         public void mostrarActividad(Actividad a)
@@ -88,10 +82,6 @@ namespace ProyectoFinal
                 divActividad.Text = sb.ToString();
 
             }
-
-
-            
-
 
         }
         public void btnApuntarse_Click(object sender, EventArgs e)

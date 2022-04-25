@@ -138,16 +138,16 @@ namespace ProyectoFinal
             {
                 case "VoluApuntados":                    
                     divListVol.Visible = true;
-                    btnVoluList.BackColor = Color.Green;
+                    btnVoluList.BackColor = Color.FromArgb(37, 150, 190);
           
                     break;
                 case "Actividades":                    
                     divListAct.Visible = true;
-                    btnActiList.BackColor = Color.Green;
+                    btnActiList.BackColor = Color.FromArgb(37, 150, 190);
                     break;
                 case "addActi":
                     divNewAct.Visible = true;                    
-                    btnActForm.BackColor = Color.Green;
+                    btnActForm.BackColor = Color.FromArgb(37, 150, 190);
                     
                     break;
             }
